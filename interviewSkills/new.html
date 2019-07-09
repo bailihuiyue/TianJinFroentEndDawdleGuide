@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>面试经验--慕课网前端跳槽面试必备技巧</title>
+  <!-- <title>面试经验--慕课网前端跳槽面试必备技巧</title> -->
 </head>
 <link rel="stylesheet" href="./js/highlight/styles/default.css">
 <script src="./js//highlight//highlight.pack.js"></script>
@@ -59,6 +59,13 @@
   div {
     margin: 5px 0;
   }
+
+  img {
+    max-width: 100%;
+  }
+  .todo{
+    color:#e30000
+  }
 </style>
 
 <body>
@@ -71,7 +78,7 @@
     </tr>
     <tr>
       <td>
-        <div> 实例</div>
+        <div>实例</div>
         <ul>
           <li>自如谈兴趣,巧妙示实例,适时讨疑问(1)</li>
           <li>节奏要适宜,切忌小聪明</li>
@@ -114,8 +121,7 @@
       </td>
       <td>
         <div>1.(慕课网:jq源码解析 架构 2-3)</div>
-        <pre>
-            <code class="javascript">
+        <pre><code class="javascript">
 ajQuery.fn = ajQuery.prototype = {
     name: 'aaron',
     init: function(selector) {
@@ -125,25 +131,19 @@ ajQuery.fn = ajQuery.prototype = {
     constructor: ajQuery
 }
 ajQuery.fn.init.prototype = ajQuery.fn
-            </code>
-        </pre>
+            </code></pre>
         <div>2.(慕课网:jq源码解析 DOM 5-12)</div>
         <div>
           简单来说就是把
           target 到根节点 div 通过 node.parentNode 遍历一遍，然后找到对应的委托元素节点，如果符合就缓存起来用于之后的操作，可以通过 jQuery.event.handlers
           方法我们可以获取类似这种的一组数据结构
         </div>
-        <pre>
-          <code class="javascript">
-$(document).on( "click" , "button",function(e){}
-          </code>
-        </pre>
+        <pre><code class="javascript">$(document).on( "click" , "button",function(e){}</code></pre>
         <div>就是当点击document时查看子元素是否是button,是就执行方法</div>
         <div>参考网址:<a href="https://www.cnblogs.com/zhoushengxiu/p/5703095.html"
             target="_blank">https://www.cnblogs.com/zhoushengxiu/p/5703095.html</a></div>
         <div>3.(慕课网:jq源码解析 架构 2-5)</div>
-        <pre>
-            <code class="javascript">
+        <pre><code class="javascript">
 aAron.extend = aAron.fn.extend = function () {
   var options, src, copy,
       target = arguments[0] || {},
@@ -167,8 +167,7 @@ aAron.extend = aAron.fn.extend = function () {
   }
   return target;
 }
-            </code>
-        </pre>
+            </code></pre>
       </td>
     </tr>
     <tr>
@@ -244,18 +243,9 @@ aAron.extend = aAron.fn.extend = function () {
       <td>
         <div>DOM事件类:</div>
         <div>DOM0:ele.onclick 或者写在标签上</div>
-        <div>DOM1: 1级DOM标准中并没有定义事件相关的内容，所以没有所谓的1级DOM事件模型。</div>
-        <pre>
-                <code class="javascript">
-DOM2:ele.addEventListener("click",function(){}),DOM2支持多个事件绑定
-                </code>
-            </pre>
-        <pre>
-          <!-- TODO:1.这块还没有整理好,需要把pre的空白去掉,可能需要css初始化文件 -->
-                <code class="javascript">
-DOM3:ele.addEventListener('keyup',function(){}) ,还有自定义事件
-                </code>
-            </pre>
+        <div>DOM1: 1级DOM标准中并没有定义事件相关的内容，所以没有所谓的1级DOM事件模型.</div>
+        <pre><code class="javascript">DOM2:ele.addEventListener("click",function(){}),DOM2支持多个事件绑定</code></pre>
+        <pre><code class="javascript">DOM3:ele.addEventListener('keyup',function(){}) ,还有自定义事件</code></pre>
         <div><span>事件模型:</span></div>
         <div>捕获,</div>
         <div>冒泡</div>
@@ -291,14 +281,186 @@ DOM3:ele.addEventListener('keyup',function(){}) ,还有自定义事件
         <div>可以添加自定义参数</div>
       </td>
     </tr>
+    <tr>
+      <td>
+        <div>HTTP协议类</div>
+      </td>
+      <td>
+        <div>1.HTTP协议的主要特点</div>
+        <div>2.HTTP报文的组成部分</div>
+        <div>3.HTTP方法</div>
+        <div>4.POST和GET的区别</div>
+        <div>5.HTTP状态码</div>
+        <div>6.什么是持久连 接</div>
+        <div>7.什么是管线化</div>
+      </td>
+      <td>
+        <div>1.简单快速,灵活,无连接,无状态</div>
+        <div>2.请求报文:请求行,请求头,空行,请求体</div>
+        <div>响应报文:状态行,响应头,空行,响应体</div>
+        <div>请求行:http方法,页面地址,http协议,版本</div>
+        <div>请求头,key-value值,让服务端获取客户端信息,比如用户代理</div>
+        <div>空行:告诉服务器下面的事请求体了</div>
+        <div>请求体:get-post的内容</div>
+        <div>响应报文:</div>
+        <div>①报文协议及版本;</div>
+        <div>②状态码及状态描述;</div>
+        <div>③响应报文头，也是由多个属性组成;</div>
+        <div>④响应报文体，即我们真正要的“干货”.</div>
+        <div>3.GET 获取</div>
+        <div>POST 传输</div>
+        <div>PUT  更新资源</div>
+        <div>DELETE 删除资源</div>
+        <div>HEAD 获得报文首部</div>
+        <div>4.GET,POST区别:</div>
+        <div><img src="./img/f95388308409e54b69504e7ede38ca8a.png" /></div>
+        <div>5.状态码:</div>
+        <div>1xx：指示信息--表示请求已接收，继续处理.</div>
+        <div>2xx：成功--表示请求已被成功接收、理解、接受.</div>
+        <div>3xx：重定向--要完成请求必须进行更进一步的操作.</div>
+        <div>4xx：客户端错误--请求有语法错误或请求无法实现.</div>
+        <div>5xx：服务器端错误--服务器未能实现合法的请求.</div>
+        <div>6.持久连接:keep-alive,1.1开始支持</div>
+        <div>7.管线化</div>
+        <div>&gt;管线化技术——客户端可以发送多次请求到服务端，而不需要等待上一次请求得到响应的时候才能进行下一次请求.实现并行发送请求</div>
+        <div>&gt;前提是持久连接的情况下,打包请求和响应</div>
+        <div>&gt;仅HTTP/1.1支持此技术（HTTP/1.0不支持），并且只有GET和HEAD要求可以进行管线化，而POST则有所限制.</div>
 
+      </td>
+      <td>
+        <div>状态码:
+          <a shape="rect" href="https://blog.csdn.net/xiaoninvhuang/article/details/70257189"
+            target="_blank">https://blog.csdn.net/xiaoninvhuang/article/details/70257189</a><br clear="none" />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>原型链</div>
+      </td>
+      <td>
+        <div>1.创建原型链有几种方法</div>
+        <div>2.原型,构造函数,实例,原型链</div>
+        <div>3.instanceof原理</div>
+        <div>4.new 运算符</div>
+        <div>注:</div>
+        <div>什么是构造函数:当任意一个普通函数用于创建一类对象时，它就被称作构造函数
+        </div>
+      </td>
+      <td>
+        <div>1.</div>
+        <div><img src="./img/fd97fb605982f3a602936e606c77ec4b.png" /></div>
+        <div>2.<img src="./img/cc35d87fda8e1c28fd8be9989e5e280a.png" /></div>
+
+        <div>3.<img src="./img/c031081256f8dc45b9a460d18beaecb3.png" /></div>
+        <div>实际上就是判断 实例对象.__proto__(可以无限__proto__) 与构造函数.prototype是不是引用的同一个地址</div>
+        <div>4.</div>
+        <div>
+          new的工作流程：<br>
+          1、创建一个空对象（var obj = {};）<br>
+          2、使该空对象继承于构造函数的原型(obj.__proto__ = Foo.prototype;)<br>
+          3、使用指定的参数调用构造函数 Foo ，并将 this 绑定到新创建的对象。(Foo.call(obj, x, y, z);)<br>
+          4、由构造函数返回的对象就是 new 表达式的结果。如果构造函数没有显式返回一个对象，则使用步骤1创建的对象。（一般情况下，构造函数不返回值，但是用户可以选择主动返回对象，来覆盖正常的对象创建步骤）
+        </div>
+      </td>
+      <td>
+        <div>1.对象就是一个实例</div>
+        <div>2.任何函数都可以当做构造函数,new完了一定是构造函数</div>
+        <div>3.构造函数都有prototype属性</div>
+        <div>4.只要在原型链上的,instanceof返回的结果都是true,比如 o3 instanceof M是true,那么 o3 instanceof Object也是true</div>
+        <div class="todo">5.TODO: new的原理</div>
+        <div>6.prototype是函数的内置属性，__proto__是对象的内置属性是JS内部使用寻找原型链的属性。
+        </div>
+        <div>7.object.create()原理:</div>
+        <div><a shape="rect" style="color: #0000ee; text-decoration: underline;"
+            href="http://www.cnblogs.com/ones/p/8453984.html"
+            target="_blank">http://www.cnblogs.com/ones/p/8453984.html</a><br clear="none" /></div>
+        <div><span style="color: #e30000;">__proto__和prototype的区别</span></div>
+        <div>js中的对象都是new +构造函数创建的。而这个构造函数就是我们定义的函数。</div>
+        <div>而所有的对象中都有__proto__属性，这个属性就是一个指针，指向构造函数中的prototype属性。</div>
+        <div>我们可以做一个简单的验证</div>
+        <pre><code class="javascript">var obj1={};
+console.log(obj1.__proto__===Object.prototype);
+//输出true</code></pre>
+      </td>
+    </tr>
+    <tr>
+        <td>
+          <div>面向对象</div>
+        </td>
+        <td> </td>
+        <td>
+          <div>1.类的声明</div>
+          <pre><code class="javascript">function Animal (){
+  this.name="name";
+}
+es6:
+class Animal2{
+  constructor(){
+    this.name="name";
+  }
+}</code></pre>
+          <div>2.生成实例 new Animal(),new Animal2</div>
+          <div>3.继承&gt;</div>
+          <div>call方法(通过构造函数实现继承)</div>
+          <div><img src="./img/63b3d32af218c44205a4855b132d0c13.png"/></div>
+          <div>缺点:无法继承来自Parent1的原型上的东西,只能部分继承</div>
+          <div>&gt;原型链继承</div>
+          <div><img src="./img/bb8c286e332984d18c32f077825d220e.png"/></div>
+          <div>缺点:</div>
+          <div>改变了s1的属性同时也会影响到s2,因为原型链中的原型对象是公用的</div>
+          <div><span style="color: #ff0000;">注:</span>实际上new出来的新类.name是不存在的,通过查找新类.__proto__.name才会有,所以是在原型链上查找出来的
+          </div>
+          <div>&gt;组合方式(企业通用方法)
+            <img style="display: block" src="./img/548359686e4cae8d93dacddfb1bb5add.png" /></div>
+          <div>缺点:new 2次,构造函数被执行了2次</div>
+          <div>第一次:Parent3.call()的时候</div>
+          <div>第二次:Child3的原型new Parent3的时候</div>
+          <div><span
+              style="color: #ff0000;">注:</span>其实s3和s4分别有两套name和play,一份是call出来的,使用时直接s3.name,可以得出,一份是原型链上的s3.__proto__.name可以得出,该方法只是在call的基础上把parent的原型链继承给了Child3而已
+          </div>
+          <div>优化</div>
+          <div><img src="./img/a2e9fbc828164c0a1bfb05ab9e3852d7.png" /></div>
+          <div>缺点:constroctor指向父类</div>
+          <div>优化</div>
+          <div>测试过程中也可以</div>
+          <pre><code class="javascript">function Parent4 () {
+  this.name = 'parent4';
+  this.play = [1, 2, 3];
+}
+function Child4 () {
+  Parent4.call(this);
+  this.type = 'child4';
+}
+Child4.prototype = Parent4.prototype;
+Child4.prototype.constructor=Child4;
+var s5 = new Child4();
+var s6 = new Child4();
+console.log(s5, s6);
+console.log(s5 instanceof Child4, s5 instanceof Parent4);
+console.log(s5.constructor);</code></pre>
+          <div>将<span style="color: #e30000;">constructor</span>设置回来即可,但是父类和子类的</div>
+          <div>constructor都变成子类了</div>
+          <div>&gt;终极优化</div>
+          <div><img src="./img/efb8ba3733164fe4fef5afcd8f0cbb5b.png" /></div>
+          <div>var o=Object.create(parent)是把参数parent当做原型对象传给o的,所以o并不具备parent的属性,但是o的__proto__具有,因为o.__proto__===parent
+          </div>
+        </td>
+        <td>
+          <div>未掌握://1.constructor</div>
+          <div>//2.原型链</div>
+          <div><span
+              style="color: #ff0000;">注:</span>原型链继承由于new的时候是把原型对象上的属性复制给新对象,于是新对象相当于有两个相同属性,如果新对象为o,那么他既有o.name,又有o.__proto__.name,修改两个的时候互不影响,但是会影响原型链就是原型对象的.prototype,继而影响所有new出来的新对象
+          </div>
+        </td>
+      </tr>
   </table>
 </body>
 
 </html>
 
-<pre>
-    <code class="javascript">
-      
-    </code>
-</pre>
+<pre><code class="javascript">
+   
+    </code></pre>
+
+    class="todo" TODO: 
