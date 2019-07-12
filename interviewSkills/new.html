@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- <title>面试经验--慕课网前端跳槽面试必备技巧</title> -->
+  <title>面试经验--前端跳槽面试常见问题</title>
 </head>
 <link rel="stylesheet" href="./js/highlight/styles/default.css">
 <script src="./js//highlight//highlight.pack.js"></script>
@@ -54,6 +54,7 @@
 
   pre {
     margin: 0;
+    display: flex;
   }
 
   div {
@@ -63,8 +64,14 @@
   img {
     max-width: 100%;
   }
-  .todo{
-    color:#e30000
+
+  .todo {
+    color: #e30000
+  }
+
+  a {
+    word-wrap: break-word;
+    word-break: normal;
   }
 </style>
 
@@ -140,8 +147,7 @@ ajQuery.fn.init.prototype = ajQuery.fn
         </div>
         <pre><code class="javascript">$(document).on( "click" , "button",function(e){}</code></pre>
         <div>就是当点击document时查看子元素是否是button,是就执行方法</div>
-        <div>参考网址:<a href="https://www.cnblogs.com/zhoushengxiu/p/5703095.html"
-            target="_blank">https://www.cnblogs.com/zhoushengxiu/p/5703095.html</a></div>
+        <div>参考网址:<a href="https://www.cnblogs.com/zhoushengxiu/p/5703095.html" target="_blank">链接</a></div>
         <div>3.(慕课网:jq源码解析 架构 2-5)</div>
         <pre><code class="javascript">
 aAron.extend = aAron.fn.extend = function () {
@@ -244,8 +250,10 @@ aAron.extend = aAron.fn.extend = function () {
         <div>DOM事件类:</div>
         <div>DOM0:ele.onclick 或者写在标签上</div>
         <div>DOM1: 1级DOM标准中并没有定义事件相关的内容，所以没有所谓的1级DOM事件模型.</div>
-        <pre><code class="javascript">DOM2:ele.addEventListener("click",function(){}),DOM2支持多个事件绑定</code></pre>
-        <pre><code class="javascript">DOM3:ele.addEventListener('keyup',function(){}) ,还有自定义事件</code></pre>
+        <pre><code class="javascript">DOM2:ele.addEventListener("click",function(){})
+//DOM2支持多个事件绑定</code></pre>
+        <pre><code class="javascript">DOM3:ele.addEventListener('keyup',function(){})
+//还有自定义事件</code></pre>
         <div><span>事件模型:</span></div>
         <div>捕获,</div>
         <div>冒泡</div>
@@ -344,7 +352,7 @@ aAron.extend = aAron.fn.extend = function () {
         <div>3.instanceof原理</div>
         <div>4.new 运算符</div>
         <div>注:</div>
-        <div>什么是构造函数:当任意一个普通函数用于创建一类对象时，它就被称作构造函数
+        <div>什么是构造函数:当任意一个普通函数用<br>于创建一类对象时，它就被称作构造函数
         </div>
       </td>
       <td>
@@ -385,13 +393,13 @@ console.log(obj1.__proto__===Object.prototype);
       </td>
     </tr>
     <tr>
-        <td>
-          <div>面向对象</div>
-        </td>
-        <td> </td>
-        <td>
-          <div>1.类的声明</div>
-          <pre><code class="javascript">function Animal (){
+      <td>
+        <div>面向对象</div>
+      </td>
+      <td> </td>
+      <td>
+        <div>1.类的声明</div>
+        <pre><code class="javascript">function Animal (){
   this.name="name";
 }
 es6:
@@ -400,31 +408,31 @@ class Animal2{
     this.name="name";
   }
 }</code></pre>
-          <div>2.生成实例 new Animal(),new Animal2</div>
-          <div>3.继承&gt;</div>
-          <div>call方法(通过构造函数实现继承)</div>
-          <div><img src="./img/63b3d32af218c44205a4855b132d0c13.png"/></div>
-          <div>缺点:无法继承来自Parent1的原型上的东西,只能部分继承</div>
-          <div>&gt;原型链继承</div>
-          <div><img src="./img/bb8c286e332984d18c32f077825d220e.png"/></div>
-          <div>缺点:</div>
-          <div>改变了s1的属性同时也会影响到s2,因为原型链中的原型对象是公用的</div>
-          <div><span style="color: #ff0000;">注:</span>实际上new出来的新类.name是不存在的,通过查找新类.__proto__.name才会有,所以是在原型链上查找出来的
-          </div>
-          <div>&gt;组合方式(企业通用方法)
-            <img style="display: block" src="./img/548359686e4cae8d93dacddfb1bb5add.png" /></div>
-          <div>缺点:new 2次,构造函数被执行了2次</div>
-          <div>第一次:Parent3.call()的时候</div>
-          <div>第二次:Child3的原型new Parent3的时候</div>
-          <div><span
-              style="color: #ff0000;">注:</span>其实s3和s4分别有两套name和play,一份是call出来的,使用时直接s3.name,可以得出,一份是原型链上的s3.__proto__.name可以得出,该方法只是在call的基础上把parent的原型链继承给了Child3而已
-          </div>
-          <div>优化</div>
-          <div><img src="./img/a2e9fbc828164c0a1bfb05ab9e3852d7.png" /></div>
-          <div>缺点:constroctor指向父类</div>
-          <div>优化</div>
-          <div>测试过程中也可以</div>
-          <pre><code class="javascript">function Parent4 () {
+        <div>2.生成实例 new Animal(),new Animal2</div>
+        <div>3.继承&gt;</div>
+        <div>call方法(通过构造函数实现继承)</div>
+        <div><img src="./img/63b3d32af218c44205a4855b132d0c13.png" /></div>
+        <div>缺点:无法继承来自Parent1的原型上的东西,只能部分继承</div>
+        <div>&gt;原型链继承</div>
+        <div><img src="./img/bb8c286e332984d18c32f077825d220e.png" /></div>
+        <div>缺点:</div>
+        <div>改变了s1的属性同时也会影响到s2,因为原型链中的原型对象是公用的</div>
+        <div><span style="color: #ff0000;">注:</span>实际上new出来的新类.name是不存在的,通过查找新类.__proto__.name才会有,所以是在原型链上查找出来的
+        </div>
+        <div>&gt;组合方式(企业通用方法)
+          <img style="display: block" src="./img/548359686e4cae8d93dacddfb1bb5add.png" /></div>
+        <div>缺点:new 2次,构造函数被执行了2次</div>
+        <div>第一次:Parent3.call()的时候</div>
+        <div>第二次:Child3的原型new Parent3的时候</div>
+        <div><span
+            style="color: #ff0000;">注:</span>其实s3和s4分别有两套name和play,一份是call出来的,使用时直接s3.name,可以得出,一份是原型链上的s3.__proto__.name可以得出,该方法只是在call的基础上把parent的原型链继承给了Child3而已
+        </div>
+        <div>优化</div>
+        <div><img src="./img/a2e9fbc828164c0a1bfb05ab9e3852d7.png" /></div>
+        <div>缺点:constroctor指向父类</div>
+        <div>优化</div>
+        <div>测试过程中也可以</div>
+        <pre><code class="javascript">function Parent4 () {
   this.name = 'parent4';
   this.play = [1, 2, 3];
 }
@@ -439,28 +447,755 @@ var s6 = new Child4();
 console.log(s5, s6);
 console.log(s5 instanceof Child4, s5 instanceof Parent4);
 console.log(s5.constructor);</code></pre>
-          <div>将<span style="color: #e30000;">constructor</span>设置回来即可,但是父类和子类的</div>
-          <div>constructor都变成子类了</div>
-          <div>&gt;终极优化</div>
-          <div><img src="./img/efb8ba3733164fe4fef5afcd8f0cbb5b.png" /></div>
-          <div>var o=Object.create(parent)是把参数parent当做原型对象传给o的,所以o并不具备parent的属性,但是o的__proto__具有,因为o.__proto__===parent
-          </div>
-        </td>
-        <td>
-          <div>未掌握://1.constructor</div>
-          <div>//2.原型链</div>
-          <div><span
-              style="color: #ff0000;">注:</span>原型链继承由于new的时候是把原型对象上的属性复制给新对象,于是新对象相当于有两个相同属性,如果新对象为o,那么他既有o.name,又有o.__proto__.name,修改两个的时候互不影响,但是会影响原型链就是原型对象的.prototype,继而影响所有new出来的新对象
-          </div>
-        </td>
-      </tr>
+        <div>将<span style="color: #e30000;">constructor</span>设置回来即可,但是父类和子类的</div>
+        <div>constructor都变成子类了</div>
+        <div>&gt;终极优化</div>
+        <div><img src="./img/efb8ba3733164fe4fef5afcd8f0cbb5b.png" /></div>
+        <div>var o=Object.create(parent)是把参数parent当做原型对象传给o的,所以o并不具备parent的属性,但是o的__proto__具有,因为o.__proto__===parent
+        </div>
+      </td>
+      <td>
+        <div>未掌握://1.constructor</div>
+        <div>//2.原型链</div>
+        <div><span
+            style="color: #ff0000;">注:</span>原型链继承由于new的时候是把原型对象上的属性复制给新对象,于是新对象相当于有两个相同属性,如果新对象为o,那么他既有o.name,又有o.__proto__.name,修改两个的时候互不影响,但是会影响原型链就是原型对象的.prototype,继而影响所有new出来的新对象
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>通信类</div>
+        <div>复习文件:</div>
+      </td>
+      <td>
+        <div>1.什么是同源策略及限制</div>
+        <div>2.前后端如何通信</div>
+        <div>3.如何创建ajax</div>
+        <div>4.跨域通信的几种方式</div>
+      </td>
+      <td>
+        <div>1.协议,域名和端口不一致的情况下无法操作</div>
+        <div>2.AJAX(同源)</div>
+        <div>WebSocket(不限制)</div>
+        <div>CORS(新的,不限制) 浏览器发现跨域时自动在请求头添加<br>Access-Control-Allow-Origin</div>
+        <div>3.</div>
+        <div><img src="./img/6e25d499e78d6dc6be390bc6df90a351.png" /></div>
+        <div>1). </div>
+        <pre><code class="javascript">
+var xhr = XMLHttpRequest? 
+              new XMLHttpRequest(): 
+              new ActiveXObject('Microsoft.XMLHTTP');
+          </code></pre>
+        <div>2).</div>
+        <pre><code class="javascript">
+xhr.open(type, url, true);
+xhr.send();
+xhr.onload(function(){
+    data=xhr.responseText
+})
+          </code></pre>
+        <div>4.</div>
+        <div><img src="./img/6d3fec632b1d23a3a1e31237a5552ddf.png" /></div>
+      </td>
+      <td>
+        <div>1.jsonp原理:利用script标签可以跨域</div>
+        <div>jsonp 利用script的异步加载</div>
+        <div>//todo:手写ajax代码,手写一遍jsonp.js</div>
+        <div>postMessage传递过来数据时监控方式:</div>
+        <div>window.addEventListener('message', onmessage, false);</div>
+        <div>Hash传递过来数据时监控方式:</div>
+        <div>window.addEventListener('hashchange', onmessage, false);</div>
+        <div>4.
+        </div>
+        <div>jsonp 只能get</div>
+        <div>hash的改变不刷新页面,常用于iframe,onhashchange能监控hash的变化</div>
+        <div>postMessage:</div>
+        <div>WebSocket:</div>
+        <div>CORS:</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>安全类</div>
+      </td>
+      <td>
+        <div>1.CSRF</div>
+        <div>2.XSS</div>
+      </td>
+      <td>
+        <div>1.跨站请求伪造</div>
+        <div><img src="./img/c048aa80868a1743facb80d23b5024c1.png" /></div>
+        <div>攻击原理：</div>
+        <div>防御措施:.a加token验证</div>
+        <div>b.referer验证  来源 </div>
+        <div>c.隐藏令牌 一个隐藏的token</div>
+        <div>2.跨域脚本攻击</div>
+        <div>防范措施:去除评论中的可执行脚本</div>
+        <div>两种攻击的区别 a.xss是向网页中插入脚本执行</div>
+        <div>b.csrf是利用漏洞执行接口,而且csrf依赖于用户登录网站</div>
+      </td>
+      <td>
+        <div>todo://清楚csrf原理</div>
+        <div>1.用户登录A网站,并生成一个cookie</div>
+        <div>2.用户访问B,B有一个链接指向A,</div>
+        <div>3.用户点击钓鱼链接,于是带着cookie就去了A,达到了模拟用户操作的目的</div>
+        <div>防范:加token,因为token是惟一的黑客只能带着cookie去访问,而得不到中的数据,所以也得不到token</div>
+        <div><a shape="rect" href="https://blog.csdn.net/a4171175/article/details/78181477"
+            target="_blank">https://blog.csdn.net/a4171175/article/details/78181477</a><br clear="none" /></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>算法类</div>
+      </td>
+      <td>
+        <div>1.排序</div>
+        <div>2.堆栈,队列,链表</div>
+        <div>3.递归</div>
+        <div>4.波兰式和逆波兰式</div>
+      </td>
+      <td>
+        <div>1.</div>
+        <div>快速排序：</div>
+        <div><a shape="rect" href="https://segmentfault.com/a/1190000009426421"
+            target="_blank">https://segmentfault.com/a/1190000009426421</a><br clear="none" /></div>
+        <div>选择排序：</div>
+        <div><a shape="rect" href="https://segmentfault.com/a/1190000009366805"
+            target="_blank">https://segmentfault.com/a/1190000009366805</a><br clear="none" /></div>
+        <div>希尔排序:</div>
+        <div><a shape="rect" href="https://segmentfault.com/a/1190000009461832"
+            target="_blank">https://segmentfault.com/a/1190000009461832</a><br clear="none" /></div>
+        <div><a shape="rect" href="http://www.cnblogs.com/chengxiao/p/6104371.html"
+            target="_blank">http://www.cnblogs.com/chengxiao/p/6104371.html</a><br clear="none" /></div>
+        <div>冒泡排序: <span>原理是临近的数字两两进行比较,<br>按照从小到大或者从大到小的顺序进行交换</span>
+        </div>
+        <div><a shape="rect" href="http://www.cnblogs.com/kaima/archive/2009/09/02/1558615.html"
+            target="_blank">点我查看</a>
+        </div>
+        <div>选择排序是跟某一个数值去换,插入排序是找到位置插入</div>
+        <div>2.</div>
+        <div><img src="./img/ea09ae160c85f0906590df7ea112a9b8.png" /></div>
+        <div>3.</div>
+        <div><img src="./img/02c86ac22d32988ff4187f653d260bc3.png" /></div>
+        <div>4.</div>
+        <img src="./img/36b651826f97325cd57ccecce38c229a.png" /></div>
+      </td>
+      <td>
+        <div>没答上来的技巧:1.先理解题目的意思,实在看不懂,问面试官可否给点提示</div>
+        <div>2.判断使用哪种算法,分解难度,想到哪写到哪</div>
+        <div>3.写出伪代码</div>
+        <div>4.卡住的地方问面试官</div>
+        <div>5.说出用哪种算法,说出原理</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>es6的一些常用语法</div>
+      </td>
+      <td>
+        <div>1.变量声明const和let</div>
+        <div>2.模板字符串</div>
+        <div>3.函数默认参数</div>
+        <div>4.箭头函数</div>
+        <div>5.拓展的对象功能(简写键值对)</div>
+        <div>6.Spread Operator 展开运算符(三个点儿...)</div>
+        <div>7.import 和 export</div>
+        <div>8. Promise</div>
+        <div>9.Generators</div>
+      </td>
+      <td>
+        <div>1.let可以解决闭包问题</div>
+        <div>4.</div>
+        <pre><code class="javascript">//例如：
+[1,2,3].map( x => x + 1 )
+//等同于：
+[1,2,3].map((function(x){
+return x + 1
+}).bind(this))
+</code></pre>
+        <div>5.</div>
+        <pre><code class="javascript">function people(name, age) {
+  return {
+    name,
+    age
+  };
+}</code></pre>
+        <div>6.</div>
+        <pre><code class="javascript">//数组 
+const color = ['red', 'yellow'] 
+const colorful = [...color, 'green', 'pink']
+console.log(colorful) 
+//[red, yellow, green, pink]</code></pre>
+        <div>8.</div>
+        <pre><code class="javascript">fetch('/api/todos')
+.then(res => res.json())
+.then(data => ({ data }))
+.catch(err => ({ err }));</code></pre>
+        <div>9.</div>
+        <pre><code class="javascript">// 生成器 
+function *createIterator() { yield 1; yield 2; yield 3; }
+//生成器能像正规函数那样被调用，但会返回一个迭代器 
+let iterator = createIterator(); 
+console.log(iterator.next().value); // 1
+console.log(iterator.next().value); // 2 
+console.log(iterator.next().value); // 3</code></pre>
+      </td>
+      <td>
+        <div>参考:</div>
+        <div>1.整篇文章:</div>
+        <div><a shape="rect" href="https://www.jianshu.com/p/287e0bb867ae"
+            target="_blank">https://www.jianshu.com/p/287e0bb867ae</a><br clear="none" /></div>
+        <div>2.Promise 原理:</div>
+        <div><a shape="rect" href="https://www.cnblogs.com/zhansu/p/6530844.html"
+            target="_blank">https://www.cnblogs.com/zhansu/p/6530844.html</a><br clear="none" /></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>箭头函数中的this和普通函数中的this对比</div>
+      </td>
+      <td>
+        <div><a shape="rect" href="https://www.cnblogs.com/fanzhanxiang/p/8888963.html" target="_blank">点我查看</a><br />
+        </div>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <div>LocalStorage和sessionStorage的用法以及使用区别</div>
+      </td>
+      <td>
+        <div>localStorage的生命周期是永久性的。即使关闭浏览器，数据也不会销毁，存储大小一般为5M,需要主动去销毁</div>
+      </td>
+      <td>
+        <div>sessionStorage 的生命周期是在浏览器关闭前。<br>
+          在整个浏览器未关闭前，其数据一直都是存在的。</div>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <div>JS中BOM和DOM的区别与联系</div>
+      </td>
+      <td>
+        <div>javacsript是通过访问BOM对象来访问、控制、修改客户端(浏览器)，由于BOM的window包含了document，可以说，<span
+            style="color: #e30000;">BOM包含了DOM(对象)</span>，浏览器提供出来给予访问的是BOM对象，从BOM对象再访问到DOM对象，从而js可以操作浏览器以及浏览器读取到的文档
+        </div>
+      </td>
+      <td>
+        <div><a shape="rect" href="https://blog.csdn.net/xiao_tommy/article/details/53231165"
+            target="_blank">查看链接</a><br clear="none" /></div>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <div>变量声明加 var 和不加 var 的区别</div>
+      </td>
+      <td>
+        <div>由于变量声明自带不可删除属性，比较var num = 1 跟 num = 1，前者是变量声明，带不可删除属性，因此无法被删除；后者为全局变量的一个属性，因此可以从全局变量中删除。</div>
+      </td>
+      <td>
+        <div><a shape="rect" href="https://www.cnblogs.com/liuna/p/6140901.html"
+            target="_blank">https://www.cnblogs.com/liuna/p/6140901.html</a><br clear="none" /></div>
+      </td>
+      <td>
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>变量的提升</div>
+      </td>
+      <td>
+        <div>变量提升只提升函数名 而函数提升会提升整个函数题 注意：函数提升在变量提升上面。</div>
+      </td>
+      <td>
+        <div><a shape="rect" href="https://blog.csdn.net/demo_18/article/details/78493489"
+            target="_blank">https://blog.csdn.net/demo_18/article/details/78493489</a><br clear="none" /></div>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <div><span>1.一个页面从输入
+            URL 到页面加载显示完成，这个过程中都发生了什么？</span></div>
+      </td>
+      <td>
+        <div><span>（1）查找浏览器缓存</span>
+        </div>
+        <div><span>（2）DNS解析、查找该域名对应的IP地址、重定向（301）、发出第二个GET请求</span>
+        </div>
+        <div><span>（3）进行HTTP协议会话</span>
+        </div>
+        <div><span>（4）客户端发送报头(请求报头)</span>
+        </div>
+        <div><span>（5）服务器回馈报头(响应报头)</span>
+        </div>
+        <div><span>（6）html文档开始下载</span>
+        </div>
+        <div><span>（7）文档树建立，根据标记请求所需指定MIME类型的文件</span>
+        </div>
+        <div><span>（8）文件显示</span>
+        </div>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <div>jquery扩展</div>
+      </td>
+      <td>
+        <div>1.$.extend</div>
+        <div>2.$.fn.extend</div>
+      </td>
+      <td>
+        <pre><code class="javascript">//1.静态扩展
+$.extend({
+  sayHello: function(txt) {
+    console.log('Hello,'+txt);
+  }
+})
+$.sayHello('world'); //调用
+//2.实例扩展：
+$.fn.extend({
+  myPlugin : function(txt) {
+    this.css('color','red')
+  }
+})
+$("a").myPlugin(); //调用
+//并且实例扩展还能添加参数
+options={color:'red',width:'100px'}
+$("a").myPlugin(options);
+//插件内部再使用$.extend合并对象$.extend(opt,options)</code></pre>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <div>Vuex</div>
+      </td>
+      <td>
+        <div>Vuex是一个状态管理器，用于管理某些值的变化，统一对值的操作，把组件共享的值抽取出来，以全局模式管理，方法使得控制值的方法可复用</div>
+      </td>
+      <td>
+        <div>1.Vuex中getters相当于一个过滤器，可以在其中添加方法，然后给组件的computed</div>
+        <div>2.mutations表示可以调用的方法</div>
+        <div>3.vuex的目的类似于将数据提取成model的形式，然后对model进行数据操作并封装成方法给vue的组件中调用：method对应mutations，computed对应state,getters</div>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <div>Promise原理</div>
+      </td>
+      <td>
+        <div class="todo" TODO:>TODO:印象笔记可能把数据弄丢了,需要自己找找资料</div>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <div>Angular和Vue的差别</div>
+      </td>
+      <td>
+        <div>1.angular中的双向数据绑定是基于脏检查机制</div>
+        <div>vue的双向数据绑定是基于ES5的getter和setter来实现, </div>
+        <div>2.vue比angular更轻量, 性能上更高效, 比angular更容易上手, 学习成本低,</div>
+        <div>3.而vue可以有过个vue实例,ngview只能有一个, 不能嵌套多个视图</div>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <div>面向对象多态：</div>
+      </td>
+      <td>
+        <div>父类new子类，子类中的方法重写了父类，导致new不同的子类可以表现出不同的状态</div>
+      </td>
+      <td>
+        <div><a shape="rect" href="https://www.cnblogs.com/chenssy/p/3372798.html"
+            target="_blank">https://www.cnblogs.com/chenssy/p/3372798.html</a><br clear="none" /></div>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <div><span style="font-size: 19px; color: #e30000;">二面/三面</span></div>
+      </td>
+      <td> </td>
+      <td>
+        <div>赞美面试官研究的深,懂得多</div>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <div>渲染机制</div>
+      </td>
+      <td>
+        <div>1.什么是DOCTYPE及作用</div>
+        <div>2.浏览器渲染过程</div>
+        <div>3.重排Reflow</div>
+        <div>4.重绘Repaint</div>
+        <div>5.布局Layout</div>
+      </td>
+      <td>
+        <div>1:DTD文档类型定义,DOCTYPE作用是告诉浏览器是哪个DTD</div>
+        <div>都有哪些类型:</div>
+        <div>4.0有两种模式:严格模式,传统模式</div>
+        <div>区别:严格模式不包括展示性和弃用的元素比如&lt;font&gt;已经被废弃</div>
+        <div><img src="./img/6ce1278b8ac02e9a5fe2c71d1bae7e8d.png" /></div>
+        <div>2.渲染过程:</div>
+        <div><img src="./img/181bc7ce0b40393c1a5f06baf7b549ec.png" /></div>
+        <div>3.&gt;</div>
+        <ul>
+          <li>
+            <div>重排:定义:每个元素都有自己的盒子,浏览器根据CSS和js结算处结果让元素出现在他的位置,重新修改dom之后浏览器该做的事</div>
+          </li>
+        </ul>
+        <div>触发条件:增加删除,修改dom节点会导致重排或重绘</div>
+        <div>&gt;移动dom位置</div>
+        <div>&gt;修改部分CSS,如宽高</div>
+        <div>&gt;Resize或者Scroll窗口有可能</div>
+        <div>&gt;修改网页字体</div>
+        <ul>
+          <li>
+            <div>重绘:页面要出现的内容统统画在屏幕上</div>
+          </li>
+        </ul>
+        <div>触发条件:DOM改动</div>
+        <div>CSS改动</div>
+        <div>repaint无法避免,减少方法:使用文档片段,一次添加</div>
+        <div>区别:元素或内容的重新绘制:比如元素颜色改变,形状改变,需要重绘,</div>
+        <div>位置改变则需要重[]排</div>
+      </td>
+      <td>
+        <div>视频4-1</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>js运行机制</div>
+      </td>
+      <td>
+        <div><img src="./img/612928863156f8fac7f7adbaa3926f8f.png" /></div>
+      </td>
+      <td>
+        <div>1.settimeout运行机制<br>
+          <img src="./img/77a654ffeb39f2978c2efbc4551dd82d.png" /></div>
+        <div>2.</div>
+        <div><img src="./img/d44884b5be3b425e627cbe061d9939a3.png" /></div>
+        <div>3.</div>
+        <div><img src="./img/c9ed179666e10f14ae8ff5a4f31b56ef.png" /></div>
+        <div>4.</div>
+        <div><img src="./img/6f02e08b46b1b7d1f1099243306b0d65.png" /></div>
+
+        <div><img src="./img/f26d6b526cbfd5092a37362d8a647a1e.png" /></div>
+      </td>
+      <td>
+        <div>1.答案为 132,因为settimeout浏览器有最小时间,虽然写的是0,实际上也不会是0,浏览器优先响应同步任务</div>
+        <div>2.答案为A,while为死循环,而且是循环任务,所以永远不会输出B</div>
+        <div>3.答案还是A,由于js是同步的,虽然settimeout到时间了,但是while还没有执行完,B依然要等待</div>
+        <div>4.输出结果永远是4</div>
+        <div>   解决方法:使用闭包</div>
+        <div>上面这个是错误的,会立即输出0-5</div>
+        <pre><code class="javascript">for (var i = 0; i < 5; i++) {
+  (function(i) {
+    setTimeout(function() {
+      console.log(i);
+    }, i * 1000);
+  })(i);
+}</code></pre>
+        <div>event loop</div>
+        <div>任务队列,</div>
+        <div>执行栈空了之后继续监听任务队列,如果有,就取出来执行,反复的循环就是event loop</div>
+      </td>
+    </tr>
+    <tr>
+      <td>bind()方法</td>
+      <td>
+        <div><a shape="rect" href="http://www.cnblogs.com/xxxxBW/p/4914567.html" target="_blank">链接</a><br
+            clear="none" /></div>
+      </td>
+      <td>
+        <div>类似于call,apply,但是只绑定不执行</div>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>call,apply</td>
+      <td>
+        apply 是把参数放在数组里。　　
+        call 需要把参数按顺序传递进去
+      </td>
+      <td>
+        <pre><code class="javascript">func.call(this,arg1,arg2);
+func.apply(this,[arg1,arg2])</code></pre>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <div>闭包相关问题</div>
+      </td>
+      <td>
+        <div><a href="http://www.cnblogs.com/qieguo/p/5457040.html" target="_blank">(面试)</a></div>
+        <div><a href="https://www.jianshu.com/p/3a3fbed1ddf1" target="_blank">(原理)</a></div>
+        <div>a.闭包的作用:模拟私有变量</div>
+      </td>
+      <td>
+        <div>当其中一个这样的内部函数在包含它们的外部函数之外被调用时，就会形成闭包。</div>
+        <div><a href="http://www.cnblogs.com/yunfeifei/p/4019504.html" target="_blank">全面理解Javascript闭包和闭包的几种写法及用途</a>
+        </div>
+        <div>a.<a href="https://blog.csdn.net/u011240877/article/details/70202456" target="_blank">JavaScript
+            的闭包用于什么场景</a></div>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <div>this指向性问题</div>
+      </td>
+      <td>
+        <div>普通函数内部的this分两种情况，严格模式和非严格模式。</div>
+      </td>
+      <td>
+        <div>非严格模式下，this 默认指向全局对象window</div>
+        <div>而严格模式下， this为undefined</div>
+        <div>箭头函数可以捕获其所在上下文的this值</div>
+      </td>
+      <td>
+        <div><a shape="rect" href="http://www.cnblogs.com/dongcanliang/p/7054176.html" target="_blank">this
+            指向详细解析（箭头函数）</a></div>
+      </td>
+    </tr>
+    <tr>
+      <td>博客园</td>
+      <td>
+        <div><a href="https://www.cnblogs.com/ones" target="_blank">https://www.cnblogs.com/ones</a></div>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <div>vue 双向绑定实现</div>
+      </td>
+      <td>
+        <div>Object.defineProperty()</div>
+      </td>
+      <td>
+        <div><img src="./img/2091638fc3435786a698bdafb933faa7.png" /></div>
+      </td>
+      <td>
+        <div>原理:利用defineProperty的set方法进行劫持</div>
+        <div>缺点:只能劫持对象的属性,因此我们需要对每个对象的每个属性进行遍历，如果属性值也是对象那么需要深度遍历,显然能劫持一个完整的对象是更好的选择。(百度说的)</div>
+        <div>新方法proxy.至少性能会更好</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>页面性能类</div>
+      </td>
+      <td>
+        <div><img src="./img/1a6903133f0f4684ac91d4478ec1d4c5.png" /></div>
+
+      </td>
+      <td>
+        <div>2.</div>
+        <div><img src="./img/c10cafcac57d95fc5562d76c015695c3.png" /></div>
+        <div>2.1.1)动态创建节点,用js创建</div>
+        <div>2),3)js标签写入即可</div>
+        <div>defer只有在网页完成后才可以执行</div>
+        <div>3.</div>
+        <div><img src="./img/2b647fd4fde749d8b0e8d81a7bca21eb.png" /></div>
+        <div>3.1.1)如果报文头两条都有以第二条为准</div>
+        <div>1.2)last-那个是响应报文返回的时间,if-是请求报文中附带的,第一次获得时二者时间是一致的</div>
+        <div>Etag是一个hash值,判断文件是否有内容变化,响应报文中带,if-none是请求中给出,二者值一致 </div>
+        <div>5.第一个标签.https网站一般浏览器默认关闭a标签的预解析,使用该标签强制打开a标签预解析</div>
+        <div>第二个</div>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <div>错误监控类</div>
+      </td>
+      <td>
+        <div><img src="./img/d23618e562111a74f9cba0db9baa1b24.png" /></div>
+      </td>
+      <td>
+        <div>问法:如何保证产品质量</div>
+        <div><img src="./img/a8d8b7a029c94f1e0759f4ade2fbc7e8.png" /></div>
+        <div><img src="./img/c811e11dcf27f5308fba4146b80d4b12.png" /></div>
+        <div>1.object.onerror:object表示元素:例如image或者script标签,都有onerror事件</div>
+        <div>2.object.onerror专用于资源加载错误</div>
+        <div>window.onerror专用于即时运行错误</div>
+        <div>因为object.onerror不冒泡</div>
+        <div>3.performance.getEntries()高级浏览器可用,能显示出成功加载的资源,用所有资源减去成功的,可得到失败的</div>
+        <div>4.Error事件不冒泡,但是可以捕获</div>
+        <div><img src="./img/6bed08692e4ba1bd8ba84053e61310c6.png" /></div>
+        <div>1.在客户端加入代码</div>
+        <div>2.在服务端加入代码</div>
+        <div><img src="./img/6fee17a0dfcd1f9cfee661bcf61a68fe.png" /></div>
+        <div>1.可以做到,但是不通用</div>
+        <div>2.代码:</div>
+        <div><img src="./img/cf212c33c87af3cfd444bcd0e2023475.png" /></div>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <div><span style="font-size: 19px; color: #e30000;">三面/四面</span></div>
+      </td>
+      <td>
+        <div><img src="./img/e217e6d2e7cda333eda86afc3a0d4146.png" /></div>
+      </td>
+      <td>
+        <div>1.项目架构,技术能力,人员组织,技术难点攻克,轻描淡写没亮点不行</div>
+        <div>2.提前演练第一条内容,把握时间</div>
+        <div>3.如果是业务负责人,即使没问到项目,也要把准备的说出来,如何找时机,当面试官表现出没兴趣时,要抓住时机或者聊得很投机的时候</div>
+        <div>4.用词说话要谦虚,但是要表现自己,不能谦虚</div>
+        <div>5.不要把话说满,留一部分让面试官去问</div>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <div><img src="./img/3d00c743801cae0a98131f1d9a6bbc8d.png" /></div>
+      </td>
+      <td>
+        <div><img src="./img/89ff985cadd69a11e241f9b636e138f1.png" /></div>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <div><img src="./img/be6826b1f8bd0233095d75b61f34bc09.png" /></div>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <div><img src="./img/38eb4a94c73aaa4c38de130ea5a94d97.png" /></div>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <div><img src="./img/69186488538a1c9c6fed69b37afb06ac.png" /></div>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <div><img src="./img/2f4533d16cfb1c597e878166ef55954e.png" /></div>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <div><span style="font-size: 19px; color: #e30000;">终面</span></div>
+      </td>
+      <td>
+        <div><img src="./img/648431cf7d2053c86cab5aef6c2d4836.png" /></div>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <div><img src="./img/08f102624f6f4187610b29016fbaf645.png" /></div>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <div><img src="./img/1d95fd0475317713b2c6506dcbb08f40.png" /></div>
+      </td>
+      <td>
+        <div>1.努力超越别人,做到了比别人强</div>
+        <div>2.可以简单讲讲业务,遇到了什么问题,为了找到最好的解决方法如何努力,比如加班什么的</div>
+        <div>3.周末喜欢干什么,比如听听别人的分享,学习点什么</div>
+        <div>4.表现出非常愿意配合公司加班,表现的有责任心</div>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <div><img src="./img/1fd09ab3ec129d4d00c10470eb1a9bb5.png" /></div>
+        <div>5.多赞美公司和hr</div>
+      </td>
+      <td>
+        <div>拥有激情和热情</div>
+        <div>希望公司提供机会,比如:学习的机会,交流的机会,进修,技术分享会等等</div>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <div><span style="font-size: 19px; color: #e30000;">总结</span></div>
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <div><img src="./img/002fa6068b9fb88aff43083777956ce4.png" /></div>
+      </td>
+      <td>
+        <div>1.社招一定要看准职位描述,分析需要的技术栈,简历一定要和职位描述一致</div>
+        <div>2.自我介绍一定要打草稿,面试官有可能要根据自我描述来问问题</div>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <div><img src="./img/c42fbabff7a36dac7d556d032d7ca716.png" /></div>
+      </td>
+      <td>
+        <div>不会的问题要思考一下,不要直接说不会</div>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <div><img src="./img/0d60e908b4d9ebec50b05f2ab4675c97.png" /></div>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <div><img src="./img/00fa26140a7557cadf15d5f6e023a7f3.png" /></div>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
   </table>
 </body>
 
 </html>
-
-<pre><code class="javascript">
-   
-    </code></pre>
-
-    class="todo" TODO: 
