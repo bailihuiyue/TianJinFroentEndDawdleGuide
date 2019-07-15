@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/highlight/styles/default.css">
+    <script src="../static/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        .bold {
+            font-weight: bold;
+            width: 50px;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            margin: 5px 0;
+        }
+
+        .todo {
+            color: #e30000
+        }
+
+        .title {
+            font-size: 19px;
+            color: #e30000;
+        }
+
+        table {
+            width: 80%;
+        }
+
+        pre {
+            border: none;
+            border-radius: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 class="text-center"></h2>
+    <div class="container">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <td>arguments</td>
+                <td>Javascript function中获取参数可以用arguments，<br>
+                    如果调用方法时没有arguments比如arguments[0]不存在，则方法中也无法对arguments[0]赋值</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>hasOwnProperty</td>
+                <td>为了遍历一个对象的所有属性时忽略掉继承属性，<br>使用hasOwnProperty()来过滤该对象上的继承属性。</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>命名规则</td>
+                <td><img src="./img/191.png"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>删除数组最后两个值</td>
+                <td>
+                    <p>1.slice</p>
+                    <p>2.</p>
+                    <img src="./img/212.png">
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>包装类</td>
+                <td>
+                    <p>例如 i=123,实际内部是temp=new
+                        Number(123);再将值返回，<br>
+                        有一个拆包解包的过程因此调用i.toString()不会报错，是因为Number中包含了这个方法，本身声明的i中是没有的</p>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>预编译</td>
+                <td>
+                    <img src="./img/330.png">
+                </td>
+                <td>
+                    <p>浏览器解析html代码时发现script标签后就将标签中的内容发给javascript解释器</p>
+                    <img src="./img/379.png">
+                </td>
+                <td>
+                    <p>预编译时只是查找变量声明比如var a = 123123<br>
+                        但是不会去查看声明的值，运行的时候才会赋值<br>
+                        function a(){}是函数声明，其余所有都是函数表达式</p>
+                    <img src="./img/464.png">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <pre><code class="javascript">var a=1;
+function b(xx){
+    var xx='abc'
+    function xx(yy){
+        var xx=1
+    }
+};
+var c=function(){};
+function a (){};
+aa=15;
+b(100)</code></pre>
+                    <a href="https://www.cnblogs.com/libin-1/p/6101185.html">js函数提升和变量提升</a>
+                </td>
+
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>函数调用中也会存在预编译</td>
+                <td><img src="./img/704.png"></td>
+                <td>
+                    <p>两个形参名一样的话，后面的会覆盖前面的但是arguments又不会相互覆盖</p>
+                    <img src="./img/745.png">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><img src="./img/749.png"></td>
+                <td><img src="./img/751.png"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>函数声明与函数表达式</td>
+                <td>只有函数表达式才能立即执行比如:<br>
+                    function a{}是函数声明名<br>
+                    (function a{})是函数表达式</td>
+                <td>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><img src="./img/857.png"></td>
+                <td>
+                    <p>Function outer永远无法被释放因为 var
+                        fn是一个全局变量,<br>fn不会被释放,fn=outer,outer执行后返回了inner方法,inner又拿着outer里面的变量,所以无法释放</p>
+                </td>
+                <td><img src="./img/960.png"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <img src="./img/964.png">
+                    <pre><code class="javascript">Var myAdd=add();
+Var myAdd2=add();
+myAdd和myAdd2之间无影响,就像new出来的一样</code></pre>
+                </td>
+                <td><img src="./img/1030.png"></td>
+                <td><img src="./img/1032.png"></td>
+            </tr>
+            <tr>
+                <td>
+                    <p>使用场景:</p>
+                </td>
+                <td><a href="https://blog.csdn.net/qq_21132509/article/details/80694517">对JS闭包的理解及常见应用场景</a></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><img src="./img/1104.png"></td>
+                <td>
+                    <img src="./img/1107.png">
+                    <div>常见写法:</div>
+                    <img src="./img/1115.png">
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>this</td>
+                <td><img src="./img/1124.png"></td>
+                <td><img src="./img/1130.png"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>类数组</td>
+                <td><img src="./img/1138.png"></td>
+                <td><img src="./img/1140.png"></td>
+                <td><img src="./img/1142.png"></td>
+            </tr>
+            <tr>
+                <td>string</td>
+                <td><img width="222" height="266" src="./img/1152.png"></td>
+                <td>
+                    <pre><code class="javascript">New String()调用的是一个构造函数,返回一个object,于是可以
+Var a=new String(123);
+a.b=1;
+Console.log(a.b) //1
+如果 var a =”1”
+a.b=2;
+Console.log(a.b) //undefined
+因为string是一个基础类型,不是obj,所以无法添加属性
+用String()对象的话,循环字符串里面的内容,不需要拆包解包,速度更快 </code></pre>
+
+                </td>
+                <td><img src="./img/1363.png"></td>
+            </tr>
+            <tr>
+                <td>字符集问题</td>
+                <td><img src="./img/1372.png"></td>
+                <td>
+                    <p>Html的meta可以设置字符集,服务器响应报文也可以设置字符集,而且服务器的返回高于meta标签</p>
+                </td>
+                <td>
+                    <p>乱码问题解决:</p>
+                    <img src="./img/1432.png">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <p>编码与解码</p>
+                    <img src="./img/1442.png">
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Date</td>
+                <td><img src="./img/1452.png"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Math</td>
+                <td><img src="./img/1462.png"></td>
+                <td><img src="./img/1464.png"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>正则表达式</td>
+                <td>
+                    <p>基础理解</p>
+                    <img src="./img/1479.png">
+                    <img src="./img/1481.png">
+                </td>
+                <td>
+                    <p>详解:</p>
+                    <img src="./img/1491.png">
+                    <p>惰性:最小匹配字符串,<br>贪婪:最大匹配字符串</p>
+                    <img src="./img/1520.png">
+                    <img src="./img/1522.png">
+                    <img src="./img/1524.png">
+                    <p>先行断言前面要加一个&lt;后行就不需要了</p>
+                    <img src="./img/1546.png">
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>原型</td>
+                <td>
+                    <p>原型链:</p>
+                    <img src="./img/1559.png">
+                </td>
+                <td><img src="./img/1561.png"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>DOM</td>
+                <td><img src="./img/1569.png"></td>
+                <td>
+                    <p>窗口操作:</p>
+                    <img src="./img/1577.png">
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>单独删除某一cookie</td>
+                <td><img src="./img/1594.png"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>事件</td>
+                <td>
+                    <p>绑定方式:</p>
+                    <img src="./img/1608.png">
+                </td>
+                <td>
+                    <p>Ie的this指向window</p>
+                    <img src="./img/1626.png">
+                </td>
+                <td>
+                    <img src="./img/1628.png">
+                    <img src="./img/1629.png">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <p>解绑定:</p>
+                    <img src="./img/1639.png">
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><img src="./img/1645.png"></td>
+                <td><img src="./img/1647.png"></td>
+                <td><img src="./img/1649.png"></td>
+            </tr>
+        </table>
+
+</body>
+
+</html>
