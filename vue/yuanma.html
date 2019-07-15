@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>慕课网-vue源码解析</title>
+    <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/highlight/styles/default.css">
+    <script src="../static/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        .bold {
+            font-weight: bold;
+            width: 50px;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            margin: 5px 0;
+        }
+
+        .todo {
+            color: #e30000
+        }
+
+        .title {
+            font-size: 19px;
+            color: #e30000;
+        }
+
+        table {
+            width: 80%;
+        }
+
+        pre {
+            border: none;
+            border-radius: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 class="text-center">vue源码解析</h2>
+    <div class="container">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <td>认识flow</td>
+                <td>flow是facebok出的静态检查工具</td>
+                <td>vue中用作类型检查,类似于props里面的type用来判断传入数据的类型是否正确</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Vue.js 源码目录设计</td>
+                <td>
+                    <p>src</p>
+                    <div>├── core # 核心代码</div>
+                    <div>├── server # 服务端渲染</div>
+                    <div>├── shared # 共享代码</div>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Vue.js 源码构建</td>
+                <td>
+                    <p>1.Vue.js 源码是基于 Rollup 构建的，它的构建相关配置都在 scripts 目录下。</p>
+                    <p>3.Runtime Only VS Runtime+Compiler</p>
+                </td>
+                <td>
+                    <p>1.rollup类似于webpack,但是更精简,更适合编译纯js</p>
+                    <p>2.cjs 表示构建出来的文件遵循 CommonJS 规范，es 表示构建出来的文件遵循 ES Module 规范。 umd 表示构建出来的文件遵循 UMD 规范。</p>
+                    <p>3.Runtime Only 我们如果没有对代码做预编译，但又使用了 Vue 的 template 属性并传入一个字符串，则需要在客户端编译模板</p>
+                </td>
+                <td>
+                    <p>3.简言之,带complier生成体积会大几kb,而且性能差点,一般使用template属性时才选择这个,否则选择第一个</p>
+                </td>
+            </tr>
+            <tr>
+                <td>1-10 从入口开始</td>
+                <td>vue核心源码地址:src\core\instance\init.js</td>
+                <td>1.vue没有使用es6的class来实例化而是使用es5的方法然后混入一些mixinf方法来绑定到vue.prototype中是因为这样可以把一个大的类拆分到一个个文件中,可以使逻辑更加清晰,否则class会变得很大
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2-4 new Vue 发生了什么</td>
+                <td>vue实例化之后为什么在methods(){ this.data1 } 这个data1直接可以获取到</td>
+                <td>文件位置:src\core\instance\state.js</td>
+                <td>
+                    <p>vue首先把data取出来(vm.$options.data)然后赋值给vm._data</p>
+                    <img src="./yunamaImg/1.png" />
+                    <p>之后调用</p>
+                    <img src="./yunamaImg/2.png" />
+                    <p>方法(下图为源码)</p>
+                    <img src="./yunamaImg/3.png" />
+                    <p>里面的definProperty中定义了data里面的值,相当于vue.data1,<br>
+                        其实这个值是在vm._data.data1中,同理,methods和props也调用了proxy方法,<br>
+                        因此data,methods,props中的键不能重复,proxy相当于把vm.$options.data,等等的值打平了</p>
+                    <img src="./yunamaImg/4.png" />
+                </td>
+            </tr>
+            <tr>
+                <td>2-5 Vue 实例挂载的实现-文档</td>
+                <td>$mount到底做了什么</td>
+                <td>
+                    <p>
+                        $mount首先把传入的参数转换为element,然后进行各种判断,<br>比如要挂在的内容写在template中的情况,或者写在render函数中的情况,
+                        <br>或者直接写在.vue中的情况
+                    </p>
+                </td>
+                <td>
+                    <p>最终执行语句</p>
+                    <img src="./yunamaImg/5.png" />
+                </td>
+            </tr>
+            <tr>
+                <td>render</td>
+                <td>
+                    <p>Vue 的 _render 方法是实例的一个私有方法，它用来把实例渲染成一个虚拟 Node。它的定义在 src/core/instance/render.js 文件中</p>
+                </td>
+                <td>
+                    <p>vm._render 最终是通过执行 createElement 方法并返回的是 vnode，它是一个虚拟 Node。Vue 2.0 相比 Vue 1.0 最大的升级就是利用了 Virtual
+                        DOM</p>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>未完待续...</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+</body>
+
+</html>
