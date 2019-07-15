@@ -10,6 +10,12 @@ ES6
 https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/ES6/
 
 javascript高级
+https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/jsSenior/
 
+三大框架对比:
+https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/frameComparison/
+
+慕课网:雅虎军规
+https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/yahunjungui/
 
 vue相关
