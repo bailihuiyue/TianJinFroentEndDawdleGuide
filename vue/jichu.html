@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue基础知识(音乐播放器总结)</title>
+    <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/highlight/styles/default.css">
+    <script src="../static/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        .bold {
+            font-weight: bold;
+            width: 50px;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            margin: 5px 0;
+        }
+
+        .todo {
+            color: #e30000
+        }
+
+        .title {
+            font-size: 19px;
+            color: #e30000;
+        }
+
+        table {
+            width: 80%;
+        }
+
+        pre {
+            border: none;
+            border-radius: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 class="text-center">Vue基础知识(音乐播放器总结)</h2>
+    <div class="container">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <td>制作图标字体</td>
+                <td>https://icomoon.io/</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>模糊效果</td>
+                <td>filter: blur(6px);</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>css sticky footer</td>
+                <td>原理:负margin</td>
+                <td>
+                    <img src="./jichuImg/1.png">
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>vue-cli中 文件夹bulid/webpack.base.conf.js</td>
+                <td>
+                    <p>文件中</p>
+                    <pre><code class="javascript">resolve: {
+extensions: ['.js', '.vue', '.json'],
+alias: {
+  'vue$': 'vue/dist/vue.esm.js',
+  '@': resolve('src'),
+  'components':path.resolve(__dirname,'../src/components')
+},</code></pre>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>如何将4.2约等于成4.5</td>
+                <td>4.2乘以2向下取整再除以2</td>
+                <td>Math.floor(this.score*2)/2</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>border-bottom+负padding可以划线</td>
+                <td>垂直居中的水平线</td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>css兼容性代码插件</td>
+                <td>postcss</td>
+                <td>http://caniuse.com</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>div的自定义动画</td>
+                <td>
+                    <p>1.标签中加入transition="fade"</p>
+                    <p>2.css中添加.fade-enter,.fade-leave和fade-transition</p>
+                    <p>3.在加入transition="fade"的标签中添加css样式:transition</p>
+                </td>
+                <td><img src="./jichuImg/2.png"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>cnmp</td>
+                <td>淘宝cdn镜像</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>创建package.json包</td>
+                <td>npm init</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>cnpm vue--save-dev</td>
+                <td>安装后会在package.json中添加dependencies</td>
+                <td>加上-dev只会安装到开发版本中去</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>v-model</td>
+                <td>双向数据绑定</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>标签中不允许再使用{{text}}这样的写法</td>
+                <td>要使用 v-bind:src="text"或者:src="text"</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>v-for</td>
+                <td>1.0: &lt;li v-for="item in items"&gt;&lt;a&gt;{{$index}}&lt;/a&gt;&lt;/li&gt;
+                    可取到索引值</td>
+                <td>2.0: &lt;li v-for="(item,index) in items"&gt;
+                    index为索引值</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>filter</td>
+                <td>a|b a表示一个值,b表示过滤器</td>
+                <td>v-on:click 或者@click</td>
+                <td>点击事件 可以写方法,也可以写表达式例如:checkall=true,并且接受三元表达式</td>
+            </tr>
+            <tr>
+                <td>v-bind:class 或:class</td>
+                <td>Vue.set(item,"checked",true)监听全局变量
+                    this.$set 监听局部变量</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>子组件触发父组件方法</td>
+                <td>
+                    <pre><code class="javascript">this.$emit('increment', event.target); 
+// 子组件通过 $emit触发父组件的方法 increment</code></pre>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    getBoundingClientRect用于获取某个元素相对于视窗的位置集合
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>padding-top 100%</td>
+                <td>padding的高度会自动计算与width一致</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>npm bulid/bulid.js</td>
+                <td>用于编译打包项目</td>
+                <td>执行项目下的bulid/bulid.js文件</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <pre><code class="javascript"></code>ExtractTextPlugin = require('extract-text-webpack-plugin')</code></pre>
+                </td>
+                <td>该插件可以把.vue文件中的css代码单独提取出来编译成文件</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <pre><code class="javascript">var ora = require('ora')</code></pre>
+                </td>
+                <td>编译项目时cmd的提示语句和转圈圈的小图标</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>vendor hash.js</td>
+                <td>引用的第三方库</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>总结:</td>
+                <td>ES6+ESlint,组件化,模块化,vue router,vue resource,</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>props双向绑定方法</td>
+                <td>
+                    <p>vue 父组件向子组件可以传值,但是子组件改变父组件的值会报错:Avoid mutating a prop directly since the value will be
+                        overwritten whenever the parent......</p>
+                    <p>方法就是解耦:1.当父组件传入值时,子组件用props接住,然后在子组件data中创建另一个值,使其等于父组件传来的值, </p>
+                    <p>2.父组件中绑定方法,例如on-result-change子组件中的值变化时传递该值给父组件this.$emit('on-result-change', this.onlyText);</p>
+                    <p>3.父组件创建该方法并接住值:onResultChange(val) { this.onlyContent = val; },把值改到当初传入的变量中</p>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>this.$emit()</td>
+                <td>实验发现该方法只能传递到父元素,不能传递到祖先元素</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>vux总是报 _vm.$t is not a function的错误</td>
+                <td>
+                    <p>先安装 vue-i18n</p>
+                    <p> 在main.js中import vuei18n from 'vue-i18n' <br>vue.use(vuei18n)</p>
+                    <p>再把你的vue组件页面中的$t全删掉，问题解决</p>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>新建项目注意添加</td>
+                <td>
+                    <p>1.fastclick,</p>
+                    <p>2.babel-polyfill,</p>
+                    <p>3.stylus,</p>
+                    <p>4.stylus-loader</p>
+                    <p>5.webpack.base.conf.js添加'components':  </p>
+                    <p>resolve('src/components'),</p>
+                    <img src="./jichuImg//3.png">
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+</body>
+
+</html>
