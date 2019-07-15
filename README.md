@@ -18,4 +18,7 @@ https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/frameComparison/
 慕课网:雅虎军规
 https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/yahunjungui/
 
+bug修复和浏览器兼容性问题
+https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/bugs&compatibility/
+
 vue相关

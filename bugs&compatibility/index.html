@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>bug和浏览器兼容性</title>
+    <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/highlight/styles/default.css">
+    <script src="../static/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        .bold {
+            font-weight: bold;
+            width: 50px;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            margin: 5px 0;
+        }
+
+        .todo {
+            color: #e30000
+        }
+
+        .title {
+            font-size: 19px;
+            color: #e30000;
+        }
+
+        table {
+            width: 80%;
+        }
+
+        pre {
+            border: none;
+            border-radius: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 class="text-center">bug和浏览器兼容性</h2>
+    <div class="container">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <td>问题</td>
+                <td>原因</td>
+                <td>修复</td>
+                <td>备注</td>
+            </tr>
+            <tr>
+                <td>ele.innerHTML="
+                    &lt;script type='false/'&gt;alert('慕课网')"在页面上不显示&lt;/script&gt;
+                </td>
+                <td>
+                    <p>script元素必须位于有作用域元素之后，因为script被认为是无作用域的（页面中不可见）</p>
+                    <p>换句话说，这样设置</p>
+                    <p>div.innerHTML = "&lt;div&gt;&lt;script defer&gt;alert(1)&lt;/srcript&gt;&lt;/div&gt;"  可以执行</p>
+                </td>
+                <td>因此创建文档片段,然后使用appendChild即可解决</td>
+                <td>bug</td>
+            </tr>
+            <tr>
+                <td>IE内核浏览器localStorage的一个大坑</td>
+                <td><a href="https://www.cnblogs.com/leo-lpf/p/9435649.html">IE内核浏览器localStorage的一个大坑</a></td>
+                <td></td>
+                <td>兼容性</td>
+            </tr>
+            <tr>
+                <td>chrome</td>
+                <td>无法写入cookie</td>
+                <td>本地代码无法写入cookie，需要架设服务器才可以</td>
+                <td>坑</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+        </table>
+
+</body>
+
+</html>
