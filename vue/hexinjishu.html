@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/highlight/styles/default.css">
+    <script src="../static/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        .bold {
+            font-weight: bold;
+            width: 50px;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            margin: 5px 0;
+        }
+
+        .todo {
+            color: #e30000
+        }
+
+        .title {
+            font-size: 19px;
+            color: #e30000;
+        }
+
+        table {
+            width: 80%;
+        }
+
+        pre {
+            border: none;
+            border-radius: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 class="text-center"></h2>
+    <div class="container">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <td>合并webpack文件</td>
+                <td>
+                    <img src="./hexinjishuImg/1.png" />
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>css热更替</td>
+                <td>
+                    <img src="./hexinjishuImg/2.png" />
+                    <p>无法进行热更替</p>
+                </td>
+                <td>
+                    <img src="./hexinjishuImg/3.png" />
+                    <p>修改成这样就可以了</p>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>每次build时删除dist目录</td>
+                <td><img src="./hexinjishuImg/4.png" /></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>html页面热重载</td>
+                <td><img src="./hexinjishuImg/5.png" /></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>loader,可以使用不同的模块去解析不同的代码</td>
+                <td><img src="./hexinjishuImg/6.png" /></td>
+                <td>
+                    <p>preloader用于在loader解析之前先解析一次代码,比如使用typeScript,preloader先解析成js,然后loader再次解析</p>
+                    <img src="./hexinjishuImg/7.png" />
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>隐藏css类名</td>
+                <td><img src="./hexinjishuImg/8.png" /></td>
+                <td><img src="./hexinjishuImg/9.png" /></td>
+                <td><img src="./hexinjishuImg/10.png" /></td>
+            </tr>
+            <tr>
+                <td>安装eslint</td>
+                <td><img src="./hexinjishuImg/11.png" /></td>
+                <td>
+                    <img src="./hexinjishuImg/12.png" />
+                    <p>使eslint可以识别</p>
+                </td>
+                <td><img src="./hexinjishuImg/13.png" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><img src="./hexinjishuImg/14.png" /></td>
+                <td>
+                    <img src="./hexinjishuImg/15.png" />
+                    <p>预处理,在vue-loader之前处理es-lint</p>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>编辑器通用配置.editconfig</td>
+                <td><img src="./hexinjishuImg/16.png" /></td>
+                <td>
+                    <p>vscode可以安装插件实现,用于配置编辑器的一些行为,比如文件末尾加上一个空行</p>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>github钩子,当代码没有通过es-lint时,不允许代码提交</td>
+                <td><img src="./hexinjishuImg/17.png" /></td>
+                <td><img src="./hexinjishuImg/18.png" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>cannot read property 'eslint' of undefined报错方法解决</td>
+                <td><img src="./hexinjishuImg/19.png" /></td>
+                <td>
+                    <p>解决方法:一般是相对应的loader没有被安装,安装即可</p>
+                    <img src="./hexinjishuImg/20.png" />
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>生命周期</td>
+                <td>
+                    <pre><code class="javascript">1.beforeCreate(){}
+2.created(){}
+3.beforeMount(){}
+4.render(){}
+5.mounted(){}
+6.beforeUpdate(){}
+7.updated(){}
+8.errorCaptured(){}
+9.beforeDestroy () {}
+10.destroyed () {}</code></pre>
+                </td>
+                <td>
+                    <pre><code class="javascript">1.初始化之前
+2.初始化完成后
+3.组件挂载到dom之前
+4.渲染dom,template解析成render function
+5.组件挂载完成后
+6.组件更新(dom有变化之前)
+7.组件更新(dom有变化之后)
+8.捕获错误之后,该方法会向上冒泡，并且正式环境可以使用
+9.组件销毁前
+10.组件销毁后</code></pre>
+                </td>
+                <td>
+                    <pre><code class="javascript">4.render(h){} 方法会传入一个h参数,h就相当于$createElement方法,vue自己的方法
+9.app.$destroy()可以销毁当前组件</code></pre>
+                </td>
+            </tr>
+            <tr>
+                <td>computed</td>
+                <td><img src="./hexinjishuImg/21.png" /></td>
+                <td>
+                    <p>该方法有缓存,除非计算的结果有变化,否则不会每次都没渲染时都重新计算</p>
+                    <p>第一个handler：其值是一个回调函数。即监听到变化时应该执行的函数。</p>
+                    <p>第二个是deep：其值是true或false；确认是否深入监听。（一般监听时是不能监听到对象属性值的变化的，数组的值变化可以听到。）</p>
+                    <p>第三个是immediate：其值是true或false；确认是否以当前的初始值执行handler的函数。</p>
+
+                </td>
+                <td>
+                    <p>主要用于跟踪显示数据的变化</p>
+                </td>
+            </tr>
+            <tr>
+                <td>watch</td>
+                <td>
+                    <img src="./hexinjishuImg/22.png" />
+                </td>
+                <td>
+                    <img src="./hexinjishuImg/23.png" />
+                    <p>如果不设置handler的话,首次是不会计算的</p>
+                    <p>deep:查看obj内部的变化,遍历object会降低性能,下面的写法可以解决性能问题</p>
+                </td>
+                <td>
+                    <p>主要用于观察某一变量,一旦变化,发送ajax请求数据</p>
+                </td>
+            </tr>
+            <tr>
+                <td>props属性
+                </td>
+                <td><img src="./hexinjishuImg/24.png" /></td>
+                <td>
+                    <img src="./hexinjishuImg/25.png" />
+                    <p>还可以使用验证方法</p>
+                </td>
+                <td>
+                    <img src="./hexinjishuImg/26.png" />
+                    <p>还可以返回对象</p>
+                </td>
+            </tr>
+            <tr>
+                <td>data属性</td>
+                <td><img src="./hexinjishuImg/27.png" /></td>
+                <td>
+                    <p>大部分情况下是return一个function,因为如果直接写data:{}的话,组件如果被调用多次,data值是共享的,所以要return出一个object</p>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>解决多层级组件之间的获取引用的方法</td>
+                <td><img src="./hexinjishuImg/28.png" /></td>
+                <td><img src="./hexinjishuImg/29.png" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>on和nativeOn</td>
+                <td><img src="./hexinjishuImg/30.png" /></td>
+                <td>on绑定的事件需要$emit触发,但是nativeOn直接绑定到组件对应的元素或者元素上,猜测是调用的原生事件</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>domProps</td>
+                <td><img src="./hexinjishuImg/31.png" /></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>路由切换使用pushState还是hash</td>
+                <td><img src="./hexinjishuImg/32.png" /></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td> 统一配置路径(url前缀)</td>
+                <td><img src="./hexinjishuImg/33.png" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>路由激活时添加的class</td>
+                <td><img src="./hexinjishuImg/34.png" /></td>
+                <td>
+                    <p>linkActiveClass:路由部分匹配时添加该class如/login</p>
+                    <p>linkExactActiveClass路由全部匹配时添加该类/login/exact</p>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>webpack配置输入错误路径时的返回页</td>
+                <td><img src="./hexinjishuImg/35.png" /></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>记录页面的滚动行为,可以让某刻路由的页面每次都滚动到一个指定位置</td>
+                <td><img src="./hexinjishuImg/36.png" /></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>处理不支持pushState方法的浏览器</td>
+                <td><img src="./hexinjishuImg/37.png" /></td>
+                <td>
+                    <p>true:当vue发现浏览器不知道pushState时,则使用hash方式处理路由</p>
+                    <p>false,始终使用pushState</p>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>路由中配置一些自定义信息以便读取</td>
+                <td><img src="./hexinjishuImg/38.png" /></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>将path中:id当做prpo传给子组件</td>
+                <td><img src="./hexinjishuImg/39.png" /></td>
+                <td><img src="./hexinjishuImg/40.png" /></td>
+                <td><img src="./hexinjishuImg/41.png" /></td>
+            </tr>
+            <tr>
+                <td>使内容显示在指定的router-view中</td>
+                <td><img src="./hexinjishuImg/42.png" /></td>
+                <td><img src="./hexinjishuImg/43.png" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>路由首守卫</td>
+                <td>
+                    <p>1.全局钩子</p>
+                    <img src="./hexinjishuImg/44.png" />
+                </td>
+                <td>
+                    <img src="./hexinjishuImg/45.png" />
+                    <p>可用于全局判断登录状态</p>
+                </td>
+                <td>
+                    <img src="./hexinjishuImg/46.png" />
+                    <p>针对某一路由的路由守卫</p>
+                    <img src="./hexinjishuImg/47.png" />
+                    <p>组件内守卫</p>
+                    <img src="./hexinjishuImg/48.png" />
+                    <p>全局守卫最先进入,最后退出</p>
+                    <img src="./hexinjishuImg/49.png" />
+                    <p>next可以接收一个回调,vm就是组件被创建之后的this对象</p>
+                </td>
+            </tr>
+            <tr>
+                <td>生命周期补充</td>
+                <td>
+                    如果路由相同但是由于id之类的改变导致路由内容显示的不同,这样muonted生命周期不会再次运行,如果想根据路由变化执行某些操作,需要使用beforeRouteUpdate钩子或者watch(比较麻烦)
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>异步组件(懒加载)</td>
+                <td><img src="./hexinjishuImg/50.png" /></td>
+                <td>
+                    <img src="./hexinjishuImg/51.png" />
+                    <p>注意,该方法需要使用插件</p>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>在bable中使用未定稿的es7语法</td>
+                <td><img src="./hexinjishuImg/52.png" /></td>
+                <td><img src="./hexinjishuImg/53.png" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>mapState</td>
+                <td><img src="./hexinjishuImg/54.png" /></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>禁止在开发环境中在外部修改store的值</td>
+                <td><img src="./hexinjishuImg/55.png" /></td>
+                <td><img src="./hexinjishuImg/56.png" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>vuex的命名空间</td>
+                <td><img src="./hexinjishuImg/57.png" /></td>
+                <td>
+                    <p>需要添加namespaced: true,</p>
+                    <p>否则mutations默认挂在到全局当中</p>
+                    <p>调用方法:</p>
+                    <img src="./hexinjishuImg/58.png" />
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>vuex动态注册模块</td>
+                <td><img src="./hexinjishuImg/59.png" /></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>store的热更替</td>
+                <td><img src="./hexinjishuImg/60.png" /></td>
+                <td><img src="./hexinjishuImg/61.png" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>vuex(store)添加插件</td>
+                <td><img src="./hexinjishuImg/62.png" /></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>图解vuex</td>
+                <td><img src="./hexinjishuImg/63.png" /></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>问题</td>
+                <td class="todo">vuex dispatch 和 commit区别</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>SSR</td>
+                <td>服务端渲染只能使用nodejs完成,视频中使用的是koa,需要安装右边的插件才能完成功能</td>
+                <td><img src="./hexinjishuImg/64.png" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>nodejs修改后自动重启</td>
+                <td><img src="./hexinjishuImg/65.png" /></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>一次启动两个node进程</td>
+                <td><img src="./hexinjishuImg/66.png" /></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>服务端渲染修改meta信息</td>
+                <td><img src="./hexinjishuImg/67.png" /></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>禁止chrome密码自动填充</td>
+                <td><img src="./hexinjishuImg/68.png" /></td>
+                <td>
+                    <p>输入框中添加左边属性</p>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>axios拦截器</td>
+                <td>可用于实现全局loading动画</td>
+                <td><a href="https://blog.csdn.net/web_youth/article/details/80052814">vue+axios+element ui 实现全局loading加载</a></td>
+                <td></td>
+            </tr>
+        </table>
+
+</body>
+
+</html>

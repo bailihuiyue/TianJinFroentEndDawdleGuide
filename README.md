@@ -24,6 +24,9 @@ https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/bugs&compatibility/
 vue相关
 https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/vue/yuanma.html 源码解析
 https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/vue/基础.html 基础知识(音乐播放器)
+https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/vue/hexinjishu.html Vue核心技术 Vue+Vue-Router+Vuex+SSR实战精讲
+
+webpack总结
 
 react使用技巧
 https://github.com/bailihuiyue/Notes/blob/master/react%20%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/react%20ant%20design%20pro%20%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7.md
