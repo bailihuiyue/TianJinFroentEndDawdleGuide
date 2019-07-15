@@ -51,22 +51,22 @@
                 <td>Let与const</td>
                 <td>
                     <img src="./images/ES615.png">
-                    <div>//报错:未定义</div>
+                    <p>//报错:未定义</p>
                     <img src="./images/ES628.png">
-                    <div>// zneg liang</div>
+                    <p>// zneg liang</p>
                     <img src="./images/ES645.png">
                 </td>
                 <td>
-                    <div>如果函数内部有相同的变量定义,不论定义位置,都是屏蔽掉外部的定义</div>
-                    <div>如果是var声明,由于存在变量提升,结果就是undefined,如果是let,没有提升,则会报错</div>
+                    <p>如果函数内部有相同的变量定义,不论定义位置,都是屏蔽掉外部的定义</p>
+                    <p>如果是var声明,由于存在变量提升,结果就是undefined,如果是let,没有提升,则会报错</p>
                     <br><br><br><br>
-                    <div>Const并不是声明的值不可以修改,而是声明的常亮指针不可修改</div>
+                    <p>Const并不是声明的值不可以修改,而是声明的常亮指针不可修改</p>
                     <br><br><br><br><br><br>
-                    <div>完全冻结一个变量,使其无法被更改</div>
+                    <p>完全冻结一个变量,使其无法被更改</p>
                 </td>
                 <td>
-                    <div>Es5函数声明会被提升,es6不会,使用 ‘use strict’可以开启es6模式</div>
-                    <div class="todo">注:let有一个暂时性死区的概念</div>
+                    <p>Es5函数声明会被提升,es6不会,使用 ‘use strict’可以开启es6模式</p>
+                    <p class="todo">注:let有一个暂时性死区的概念</p>
                 </td>
             </tr>
             <tr>
@@ -82,9 +82,9 @@ obj.hasOwnProperty('key');//true
 obj.hasOwnProperty('hasOwnProperty');//false</code></pre>
                 </td>
                 <td>
-                    <div>参考文档:
+                    <p>参考文档:
                         <a href="https://www.cnblogs.com/weiqinl/p/8683207.html">js属性对象的hasOwnProperty方法</a>
-                    </div>
+                    </p>
                 </td>
                 <td></td>
             </tr>
@@ -106,31 +106,31 @@ console.log(obj.say());
 //我的名字叫laotie今年88岁了</code></pre>
                 </td>
                 <td>
-                    <div style="width: 300px">
+                    <p style="width: 300px">
                         constructor中定义的属性可以称为实例属性（即定义在this对象上），constructor外声明的属性都是定义在原型上的，可以称为原型属性（即定义在class上)。hasOwnProperty()函数用于判断属性是否是实例属性。其结果是一个布尔值，
-                        true说明是实例属性，false说明不是实例属性。in操作符会在通过对象能够访问给定属性时返回true,无论该属性存在于实例中还是原型中.</div>
+                        true说明是实例属性，false说明不是实例属性。in操作符会在通过对象能够访问给定属性时返回true,无论该属性存在于实例中还是原型中.</p>
                 </td>
                 <td>
-                    <div><span class="todo"
+                    <p><span class="todo"
                             style="width: 300px">class不存在变量提升</span>，所以需要先定义再使用。因为ES6不会把类的声明提升到代码头部，但是ES5就不一样,<span
-                            class="todo">ES5存在变量提升</span>,可以先使用，然后再定义。</div>
+                            class="todo">ES5存在变量提升</span>,可以先使用，然后再定义。</p>
                 </td>
             </tr>
             <tr>
                 <td></td>
                 <td>Super</td>
                 <td>
-                    <div>super作为函数调用时，代表父类的构造函数。ES6 要求，子类的构造函数必须执行一次super函数。</div>
+                    <p>super作为函数调用时，代表父类的构造函数。ES6 要求，子类的构造函数必须执行一次super函数。</p>
                     <pre><code class="javascript">class A {}
 class B extends A { 
     constructor() {
       super();
     }
 }</code></pre>
-                    <div>上面代码中，子类B的构造函数之中的super()，代表调用父类的构造函数。这是必须的，否则 JavaScript 引擎会报错。</div>
-                    <div><span
+                    <p>上面代码中，子类B的构造函数之中的super()，代表调用父类的构造函数。这是必须的，否则 JavaScript 引擎会报错。</p>
+                    <p><span
                             class="todo">注意，</span>super虽然代表了父类A的构造函数，但是返回的是子类B的实例，即super内部的this指的是B，因此super()在这里相当于A.prototype.constructor.call(this)。
-                    </div>
+                    </p>
                 </td>
                 <td><a href="https://blog.csdn.net/linusc/article/details/78770755">ES6 Class继承中super在不同场景中的用法</a></td>
             </tr>
@@ -155,11 +155,11 @@ class B extends A {
             <tr>
                 <td>Symbol</td>
                 <td>
-                    <div>
+                    <p>
                         ES5对象属性名都是字符串容易造成属性名的冲突。<br>
                         ES6引入了一种新的原始数据类型Symbol，表示独一无二的值。<br>
                         基本数据类型新增Symbol
-                    </div>
+                    </p>
                 </td>
                 <td>
                     <pre><code class="javascript">// 没有参数的情况
@@ -186,11 +186,11 @@ s1 === s2 // false</code></pre>
                 <td>generator</td>
                 <td>
                     <img src="./images/ES62280.png">
-                    <div>
+                    <p>
                         每次调用next()时yield自动会返回yield的值,但是用var a = yield 1的方式接不到值,也就是a是undefined
                         Yield如果不在next中传值,返回的值默认就是undefined
                         next中传值是唯一可以让yield有返回值的方法,
-                    </div>
+                    </p>
                     <pre><code class="javascript">function sum(a, b) {
                             console.log(a,b)
                             return a + b
@@ -210,10 +210,10 @@ s1 === s2 // false</code></pre>
                     <img src="./images/ES62605.png">
                 </td>
                 <td>
-                    <div>For of 不会打印出done为true的内容,也是4不会被打印出来</div>
+                    <p>For of 不会打印出done为true的内容,也是4不会被打印出来</p>
                     <img src="./images/ES62643.png">
-                    <div>第一次调用.next时函数会跳到第一个yield语句上,但是还没有执行,第二次调用next时才会执行第一个yield,因此第一次调用next(5)并不会为第一个yield赋值</div>
-                    <div>捕获异常</div>
+                    <p>第一次调用.next时函数会跳到第一个yield语句上,但是还没有执行,第二次调用next时才会执行第一个yield,因此第一次调用next(5)并不会为第一个yield赋值</p>
+                    <p>捕获异常</p>
                     <img src="./images/ES62740.png">
                 </td>
                 <td><a href="https://www.jianshu.com/p/112373662dff">阮一峰es6要点总结——Generator</a></td>
@@ -236,7 +236,7 @@ s1 === s2 // false</code></pre>
             <tr>
                 <td>map</td>
                 <td>
-                    <div>Key可以是任意值,相同的key会被覆盖</div>
+                    <p>Key可以是任意值,相同的key会被覆盖</p>
                     <img src="./images/ES62840.png">
                 </td>
                 <td></td>
@@ -248,7 +248,7 @@ s1 === s2 // false</code></pre>
                     <img src="./images/ES62877.png">
                 </td>
                 <td>
-                    <div>From:可以将类数组转为数组同时第二个参数可以操作数组</div>
+                    <p>From:可以将类数组转为数组同时第二个参数可以操作数组</p>
                     <img src="./images/ES62908.png">
                 </td>
                 <td></td>
@@ -266,9 +266,9 @@ s1 === s2 // false</code></pre>
                 <td></td>
                 <td></td>
                 <td>
-                    <div>Find:查找匹配到结果的第一个值</div>
+                    <p>Find:查找匹配到结果的第一个值</p>
                     <img src="./images/ES62941.png">
-                    <div>比indexOf更强大,可以查找到NaN,indexOf不行</div>
+                    <p>比indexOf更强大,可以查找到NaN,indexOf不行</p>
                     <img src="./images/ES62974.png">
                 </td>
                 <td></td>
@@ -277,16 +277,16 @@ s1 === s2 // false</code></pre>
                 <td>ArrayBuff</td>
                 <td>
                     <img src="./images/ES62988.png">
-                    <div>类型化数组:<br>Unit8array 无符号8位,范围0-255<br>Int8Array 有符号8位,范围-128到127<br><br>作用,读取二进制文件,或者图片进行修改
-                    </div>
+                    <p>类型化数组:<br>Unit8array 无符号8位,范围0-255<br>Int8Array 有符号8位,范围-128到127<br><br>作用,读取二进制文件,或者图片进行修改
+                    </p>
                 </td>
                 <td>
-                    <div>dataView 更方便的操作buff</div>
+                    <p>dataView 更方便的操作buff</p>
                     <img src="./images/ES63069.png">
                 </td>
                 <td>
                     <img src="./images/ES63071.png">
-                    <div>Subarray和Int16Array用的是一个内存地址</div>
+                    <p>Subarray和Int16Array用的是一个内存地址</p>
                 </td>
             </tr>
             <tr>
@@ -305,7 +305,7 @@ Object.is(NaN, NaN) // true</code></pre>
                 <td>Object.assign</td>
                 <td>
                     <img src="./images/ES63275.png">
-                    <div>obj是完全等于obj2的</div>
+                    <p>obj是完全等于obj2的</p>
                 </td>
                 <td></td>
                 <td></td>
@@ -316,17 +316,17 @@ Object.is(NaN, NaN) // true</code></pre>
                     <img src="./images/ES63304.png">
                 </td>
                 <td>
-                    <div>
+                    <p>
                         <a href="https://www.cnblogs.com/kongxy/p/4618173.html">JavaScript中的可枚举属性与不可枚举属性</a>
                         <img src="./images/ES63358.png" style="display: block">
-                        <div>通过class创建的属性是不可枚举的,而通过prototype创建的则是可以枚举的</div>
-                    </div>
+                        <p>通过class创建的属性是不可枚举的,而通过prototype创建的则是可以枚举的</p>
+                    </p>
                 </td>
                 <td></td>
             </tr>
             <tr>
                 <td>
-                    <div>设置原型对象:</div>
+                    <p>设置原型对象:</p>
 
 
                 </td>
@@ -335,31 +335,43 @@ Object.is(NaN, NaN) // true</code></pre>
 Object.getPrototypeOf(obj);</code></pre>
                 </td>
                 <td>
-                    <div>Es6 推荐的设置原型对象的方法</div>
+                    <p>Es6 推荐的设置原型对象的方法</p>
                 </td>
                 <td></td>
             </tr>
             <tr>
                 <td>string字符串类</td>
                 <td>
-                    <img src="./images/ES63537.png">
-                    <div>${}内部可以嵌入三元表达式或者方法</div>
-                </td>
-                <td>
-                    <img src="./images/ES63558.png">
-                    <div>输出结果:</div>
-                    <img src="./images/ES63566.png">
-                    <div>tag`${name}`这种奇怪的语法可以把模板字符串转换成一个个的字符传到方法里,这样可以用来过滤字符,比如做一个安全的html,把<>转成<>
-                                方法中的字符串分割是以${}这种东西为分界线的</div>
+                        <img src="./images/ES63499.png">
+                    <p>第二个参数表示起始位置,从哪里开始查询</p>
+                    <img src="./images/ES63521.png">
+                    <p>复制文字</p>
                 </td>
                 <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>模板字符串</td>
+                <td>
+                        <img src="./images/ES63537.png">
+                        <p>${}内部可以嵌入三元表达式或者方法</p>
+                </td>
+                <td>
+                        <img src="./images/ES63558.png">
+                        <p>输出结果:</p>
+                        <img src="./images/ES63566.png">
+                </td>
+                <td>
+                        <p>tag`${name}`这种奇怪的语法可以把模板字符串转换成一个个的字符传到方法里,这样可以用来过滤字符,比如做一个安全的html,把<>转成<>
+                            方法中的字符串分割是以${}这种东西为分界线的</p>
+                </td>
             </tr>
             <tr>
                 <td>箭头函数</td>
                 <td>
-                    <div>1. 箭头函数中没有arguments</div>
-                    <div>2. 单行不用写return,多行要返回值的话必须写</div>
-                    <div>3. 箭头函数没有自己的this, 它的this是继承而来; 默认指向在定义它时所处的对象(宿主对象),</div>
+                    <p>1. 箭头函数中没有arguments</p>
+                    <p>2. 单行不用写return,多行要返回值的话必须写</p>
+                    <p>3. 箭头函数没有自己的this, 它的this是继承而来; 默认指向在定义它时所处的对象(宿主对象),</p>
                 </td>
                 <td></td>
                 <td></td>
@@ -390,104 +402,77 @@ console.log(name)
 所以log name是可以有结果的</code></pre>
                     <img src="./images/ES64001.png">
                     <img src="./images/ES64003.png">
-                    <div>只有undefined才能被x=15这样覆盖,其他值都不可以,包括null,x也会是null</div>
+                    <p>只有undefined才能被x=15这样覆盖,其他值都不可以,包括null,x也会是null</p>
                     <img src="./images/ES64052.png">
                     <img src="./images/ES64054.png">
-                    <div>Name被重复定义,也会报错</div>
+                    <p>Name被重复定义,也会报错</p>
                     <img src="./images/ES64072.png">
-                    <div>运行结果为 h e l</div>
+                    <p>运行结果为 h e l</p>
                 </td>
                 <td>
-                    <div>练习:</div>
+                    <p>练习:</p>
                     <img src="./images/ES64090.png">
-                    <div>直接运行test会报错,因为test([])相当于只有key,而没有value,左边没办法解析的</div>
+                    <p>直接运行test会报错,因为test([])相当于只有key,而没有value,左边没办法解析的</p>
                     <img src="./images/ES64142.png">
-                    <div>结果为 2 3 90</div>
+                    <p>结果为 2 3 90</p>
                 </td>
                 <td></td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
+                <td>Reflect</td>
+                <td>
+                    <a href="https://www.cnblogs.com/diligenceday/p/5474126.html"
+                        target="_blank">ES6：Javascript中的Reflect对象</a>
+                    <br>
+                    <a href="https://www.jianshu.com/p/1550752a9a65">JavaScript之Reflect</a>
+                </td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>proxy</td>
+                <td>
+                    <img src="./images/ES64408.png">
+                    <img src="./images/ES64410.png">
+                    <p>在拦截其中使用in的话,内部是通过拦截器的has方法判断的</p>
+                    <img src="./images/ES64442.png">
+                    <img src="./images/ES64442.png">
+                </td>
+                <td>
+                    <p>拦截操作是在Proxy实例对象上进行的，而非在{}对象上进行的</p>
+                    <p>Function的代理:使用proxy内部的apply方法</p>
+                    <img src="./images/ES64507.png">
+                    <p>Class的代理:使用proxy内部的construct方法</p>
+                    <img src="./images/ES64541.png">
+                </td>
                 <td></td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>模块化</td>
+                <td>
+                    <p>默认使用严格模式</p>
+                    <img src="./images/ES64559.png">
+                    <p>Name不可重新赋值,否则会报异常</p>
+                    <p>Export default 也是可以改名的</p>
+                    <img src="./images/ES64602.png">
+                    <p>这样就可以</p>
+                    <p>也可以全部引入</p>
+                    <img src="./images/ES64618.png">
+                    <p>结果:</p>
+                    <img src="./images/ES64624.png">
+                    <p>Export default的值会以 default的方式显示出来</p>
+                    <img src="./images/ES64660.png">
+                    <p>默认的default重命名</p>
+                </td>
+                <td>
+                    <img src="./images/ES64676.png">
+                    <p>Export不能写在方法里</p>
+                    <p>Export var a=1是合法的</p>
+                    <p>Export default var a = 1是不可以的</p>
+                    <p>只能提前定义好a,然后再export default</p>
+                    <p>Default 输出的不是一个引用而是值</p>
+                    <p>单纯的export输出的是引用</p>
+                </td>
                 <td></td>
             </tr>
         </table>
