@@ -9,4 +9,7 @@ https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/interviewSkills/
 ES6
 https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/ES6/
 
-javascript高级(主要内容来自于王立老师的课程,可以微信搜索隔壁老王)
+javascript高级
+
+
+vue相关

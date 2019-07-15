@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>三大框架对比</title>
+    <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/highlight/styles/default.css">
+    <script src="../static/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        .bold {
+            font-weight: bold;
+            width: 50px;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            margin: 5px 0;
+        }
+
+        .todo {
+            color: #e30000
+        }
+
+        .title {
+            font-size: 19px;
+            color: #e30000;
+        }
+
+        table {
+            width: 80%;
+        }
+
+        pre {
+            border: none;
+            border-radius: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 class="text-center">三大框架对比</h2>
+    <div class="container">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <td>特性</td>
+                <td>vue</td>
+                <td>react</td>
+                <td>angular</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>父元素从props调用</td>
+                <td>同vue</td>
+                <td>只能父子组件传值</td>
+            </tr>
+            <tr>
+                <td>拥有虚拟dom</td>
+                <td>Y</td>
+                <td>Y</td>
+                <td>未知</td>
+            </tr>
+            <tr>
+                <td>动画</td>
+                <td>与react相似(React Transition Group)</td>
+                <td>相似vue</td>
+                <td>使用ts文件,anim模块</td>
+            </tr>
+            <tr>
+                <td>语言</td>
+                <td>js</td>
+                <td>jsx</td>
+                <td>ts</td>
+            </tr>
+            <tr>
+                <td>编写风格</td>
+                <td>为.vue文件</td>
+                <td>几乎全是js</td>
+                <td>模板,ts,css分离很清晰</td>
+            </tr>
+            <tr>
+                <td>数据获取</td>
+                <td>axios</td>
+                <td>axios,fetch</td>
+                <td>自带</td>
+            </tr>
+            <tr>
+                <td>数据管理</td>
+                <td>vuex</td>
+                <td>thunk,saga</td>
+                <td>依赖注入,RXJS</td>
+            </tr>
+            <tr>
+                <td>组件间传值</td>
+                <td>vuex</td>
+                <td>redux</td>
+                <td>redux</td>
+            </tr>
+            <tr>
+                <td>keep-alive</td>
+                <td>有</td>
+                <td>没有</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td> 一个组件就是一个方法,所有参数都可以通过props传入或者直接写在标签中,<br>
+                    可以用函数的参数去接组件中写入的属性比如 function A(a,b,c){} <br>
+                    <A a={xxx} b={xxx}>xxx</A>ant-design中可以这样使用,纯react没有测试过</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>watch(监控变量改变)</td>
+                <td>有</td>
+                <td>没有,但是一般用componentWillReceiveProps(nextProps)解决,但是感觉不好使,有坑</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>设置变量</td>
+                <td>data.a=1</td>
+                <td> this.setState({a:1}),设置变量是异步的,设置完立即使用会有问题</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+        </table>
+
+</body>
+
+</html>
