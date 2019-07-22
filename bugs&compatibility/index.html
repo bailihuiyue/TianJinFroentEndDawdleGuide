@@ -60,7 +60,7 @@
                 <td>
                     <p>script元素必须位于有作用域元素之后，因为script被认为是无作用域的（页面中不可见）</p>
                     <p>换句话说，这样设置</p>
-                    <p>div.innerHTML = "&lt;div&gt;&lt;script defer&gt;alert(1)&lt;/srcript&gt;&lt;/div&gt;"  可以执行</p>
+                    <p>div.innerHTML = "&lt;div&gt;&lt;script defer&gt;alert(1)&lt;/srcript&gt;&lt;/div&gt;" 可以执行</p>
                 </td>
                 <td>因此创建文档片段,然后使用appendChild即可解决</td>
                 <td>bug</td>
@@ -78,8 +78,14 @@
                 <td>坑</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>IE11 不支持createObjectURL</td>
+                <td>
+                    <pre><code class="javascript">添加代码
+if (window.navigator.msSaveOrOpenBlob) {
+navigator.msSaveBlob(blob, fileName);
+}
+使用微软自带方法msSaveBlob</code></pre>
+                </td>
                 <td></td>
                 <td></td>
             </tr>
