@@ -54,8 +54,7 @@
                 <td>备注</td>
             </tr>
             <tr>
-                <td>ele.innerHTML="
-                    &lt;script type='false/'&gt;alert('慕课网')"在页面上不显示&lt;/script&gt;
+                <td>ele.innerHTML="&lt;script type='false/'&gt;<br>alert('慕课网')"<br>&lt;/script&gt;在页面上不显示
                 </td>
                 <td>
                     <p>script元素必须位于有作用域元素之后，因为script被认为是无作用域的（页面中不可见）</p>
@@ -66,7 +65,7 @@
                 <td>bug</td>
             </tr>
             <tr>
-                <td>IE内核浏览器localStorage的一个大坑</td>
+                <td>IE</td>
                 <td><a href="https://www.cnblogs.com/leo-lpf/p/9435649.html">IE内核浏览器localStorage的一个大坑</a></td>
                 <td></td>
                 <td>兼容性</td>
@@ -78,8 +77,9 @@
                 <td>坑</td>
             </tr>
             <tr>
-                <td>IE11 不支持createObjectURL</td>
+                <td>IE11</td>
                 <td>
+                    不支持createObjectURL
                     <pre><code class="javascript">添加代码
 if (window.navigator.msSaveOrOpenBlob) {
 navigator.msSaveBlob(blob, fileName);
@@ -90,14 +90,14 @@ navigator.msSaveBlob(blob, fileName);
                 <td></td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>ie11</td>
+                <td>position:absolute时如果不给left,top数据,有时会位置不正确,错位,</td>
+                <td>antd upload image组件遇到过这种问题</td>
                 <td></td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>firefox</td>
+                <td>直接生成一个a标签然后click不管用,需要将生成的a标签append到页面中,click事件才生效</td>
                 <td></td>
                 <td></td>
             </tr>
