@@ -755,13 +755,13 @@ console.log(iterator.next().value); // 3</code></pre>
       <td>
         <div><span>（1）查找浏览器缓存</span>
         </div>
-        <div><span>（2）DNS解析、查找该域名对应的IP地址、重定向（301）、发出第二个GET请求</span>
+        <div><span>（2）DNS解析、查找该域名对应的IP地址,找到之后进行三次握手、重定向（301）、发出第二个GET请求</span>
         </div>
         <div><span>（3）进行HTTP协议会话</span>
         </div>
         <div><span>（4）客户端发送报头(请求报头)</span>
         </div>
-        <div><span>（5）服务器回馈报头(响应报头)</span>
+        <div><span>（5）服务器回馈报头(响应报头),结束开始四次挥手</span>
         </div>
         <div><span>（6）html文档开始下载</span>
         </div>
@@ -770,7 +770,7 @@ console.log(iterator.next().value); // 3</code></pre>
         <div><span>（8）文件显示</span>
         </div>
       </td>
-      <td></td>
+      <td><img src="./img/QQ20171023-113827@2x.png" /></td>
       <td></td>
     </tr>
     <tr>
