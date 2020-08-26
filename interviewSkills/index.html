@@ -979,8 +979,30 @@ func.apply(this,[arg1,arg2])</code></pre>
         <div>a.闭包的作用:模拟私有变量</div>
       </td>
       <td>
-        <div>当其中一个这样的内部函数在包含它们的外部函数之外被调用时，就会形成闭包。</div>
-        <div><a href="http://www.cnblogs.com/yunfeifei/p/4019504.html" target="_blank">全面理解Javascript闭包和闭包的几种写法及用途</a>
+        <div>当其中一个这样的内部函数在包含它们的外部函数之外被调用时，就会形成闭包。<br/>闭包中所有的自由变量的查找，是在函数定义的地方，向上级作用域查找,不是在执行的地方！！！
+          </div>
+        <div><pre><code class="javascript">// 函数作为返回值
+          function create() {
+              const a = 100
+              return function () {
+                  console.log(a)
+              }
+          }
+          
+          const fn = create()
+          const a = 200
+          fn() // 100
+          
+          // 函数作为参数被传递
+          function print(fn) {
+              const a = 200
+              fn()
+          }
+          const a = 100
+          function fn() {
+              console.log(a)
+          }
+          print(fn) // 100</code></pre><a href="http://www.cnblogs.com/yunfeifei/p/4019504.html" target="_blank">全面理解Javascript闭包和闭包的几种写法及用途</a>
         </div>
         <div>a.<a href="https://blog.csdn.net/u011240877/article/details/70202456" target="_blank">JavaScript
             的闭包用于什么场景</a></div>
