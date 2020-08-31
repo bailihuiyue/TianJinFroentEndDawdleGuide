@@ -204,7 +204,7 @@ aAron.extend = aAron.fn.extend = function () {
 }
             </code></pre>
       </td>
-      <td></td>
+      <td><img src="./img/20200824171218.png" alt=""></td>
     </tr>
     <tr>
       <td>
@@ -263,6 +263,12 @@ aAron.extend = aAron.fn.extend = function () {
             target="_blank">http://www.cnblogs.com/CafeMing/p/6252286.html</a><br clear="none" /></div>
         <div>或者笔记:&lt;&lt;BFC的布局规则以及触发条件</div>
       </td>
+    </tr>
+    <tr>
+      <td>css样式修改</td>
+      <td><img src="./img/20200827111027.png" alt=""></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>
@@ -484,7 +490,9 @@ console.log(s5.constructor);</code></pre>
         <div>var o=Object.create(parent)是把参数parent当做原型对象传给o的,所以o并不具备parent的属性,但是o的__proto__具有,因为o.__proto__===parent
         </div>
       </td>
-      <td>
+      <td>typeof 能判断哪些类型:<br/>
+        1.undefined,string,number,bool,symbol,<br/>2.object(typeof null === 'object'),<br/>3.function
+        <img src="./img/20200824163807.png" alt="">
         <div>未掌握://1.constructor</div>
         <div>//2.原型链</div>
         <div><span
@@ -619,6 +627,60 @@ xhr.onload(function(){
       </td>
     </tr>
     <tr>
+      <td>算法类</td>
+      <td>手写深拷贝<img src="./img/20200824163915.png" alt=""></td>
+      <td>防抖
+        <pre><code class="javascript">function debounce(fn, delay = 500) {
+          // timer 是闭包中的
+          let timer = null
+      
+          return function () {
+              if (timer) {
+                  clearTimeout(timer)
+              }
+              timer = setTimeout(() => {
+                  fn.apply(this, arguments)
+                  timer = null
+              }, delay)
+          }
+      }</code></pre>
+      </td>
+      <td>
+        <pre>节流
+          <code class="javascript">function throttle(fn, delay = 100) {
+          let timer = null
+      
+          return function () {
+              if (timer) {
+                  return
+              }
+              timer = setTimeout(() => {
+                  fn.apply(this, arguments)
+                  timer = null
+              }, delay)
+          }
+      }</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>其他问题</td>
+      <td>pop,push,unshift,shift作用都是什么,concat,push区别,<br>
+        1.pop,删除数组最后一个元素,返回值是删除的那个元素,<br>
+        2.push数组末尾添加一个元素,返回值是数组长度<br>
+        3.unshift在数组最前面插入数据,返回长度<br>
+        4.shift,删除数组第一个元素,返回值是删除的那个元素,<br>
+        5.forEach,some,every,reduce都不是纯函数
+        注意,他们都不是纯函数(纯函数不会改变原数据,也就是说没有副作用),<br>
+        concat,map,filter,slice都是纯函数<br>
+        6.push是concat的简化版,concat等于push时打平数组
+      </td>
+      <td>slice(切片),splice(剪接),区别,<br>
+        1.slice是纯函数,作用:截取数组,返回截取的那部分内容<br>
+        3.splice不是纯函数,作用:把指定位置的内容替换成传入的内容<br>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
       <td>
         <div>es6的一些常用语法</div>
       </td>
@@ -717,7 +779,7 @@ console.log(iterator.next().value); // 3</code></pre>
         <div><a shape="rect" href="https://blog.csdn.net/xiao_tommy/article/details/53231165"
             target="_blank">查看链接</a><br clear="none" /></div>
       </td>
-      <td></td>
+      <td>常用BOM<img src="./img/20200827111806.png" alt=""></td>
     </tr>
     <tr>
       <td>
@@ -909,6 +971,14 @@ $("a").myPlugin(options);
       </td>
     </tr>
     <tr>
+      <td><span style="color:red">问题:浏览器渲染过程</span></td>
+      <td>为什么要把css放在head里:<br />因为放在最后页面先渲染html,没有样式,然后渲染到了css,如果网速不好或者电脑慢,会出现样式突然变化的现象,因为页面重绘了,导致了浪费计算机性能</td>
+      <td>
+        为什么要把js放在最后:<br />因为js的加载会暂停页面的渲染,因为js里可能有会修改html内容的代码,放在html中间会导致页面渲染时间变长,极端情况下会导致用户看不到完整内容,放在head里都获取不到html元素
+      </td>
+      <td><img src="./img/20200828143333.png" alt=""></td>
+    </tr>
+    <tr>
       <td>
         <div>js运行机制</div>
       </td>
@@ -979,14 +1049,16 @@ func.apply(this,[arg1,arg2])</code></pre>
         <div>a.闭包的作用:模拟私有变量</div>
       </td>
       <td>
-        <div>当一个function中包含(或return)另一个function,并且内部的function引用外部的变量,造成外部变量无法销毁,这样一大块代码就叫做闭包。闭包中所有的变量的查找，是在函数定义的地方，向上级作用域查找,不是在执行的地方！！！<br>这是js中的一种特殊现象,以前只有var,所以使用闭包来控制作用域,现在有let,const了,就不太需要了,目前可以作为私有变量去用,类似于get,set,不过又有definePropty<br/>
-          </div>
+        <div>
+          当一个function中包含(或return)另一个function,并且内部的function引用外部的变量,造成外部变量无法销毁,这样一大块代码就叫做闭包。闭包中所有的变量的查找，是在函数定义的地方，向上级作用域查找,不是在执行的地方！！！<br>这是js中的一种特殊现象,以前只有var,所以使用闭包来控制作用域,现在有let,const了,就不太需要了,目前可以作为私有变量去用,类似于get,set,不过又有definePropty<br />
+        </div>
         <div><a href="http://www.cnblogs.com/yunfeifei/p/4019504.html" target="_blank">全面理解Javascript闭包和闭包的几种写法及用途</a>
         </div>
         <div>a.<a href="https://blog.csdn.net/u011240877/article/details/70202456" target="_blank">JavaScript
             的闭包用于什么场景</a></div>
       </td>
-      <td><pre><code class="javascript">// 函数作为返回值
+      <td>
+        <pre><code class="javascript">// 函数作为返回值
         function create() {
             const a = 100
             return function () {
@@ -1007,7 +1079,8 @@ func.apply(this,[arg1,arg2])</code></pre>
         function fn() {
             console.log(a)
         }
-        print(fn) // 100</code></pre></td>
+        print(fn) // 100</code></pre>
+      </td>
     </tr>
     <tr>
       <td>
@@ -1052,7 +1125,7 @@ func.apply(this,[arg1,arg2])</code></pre>
     </tr>
     <tr>
       <td>
-        <div>页面性能类</div>
+        <div>页面性能类(性能优化)</div>
       </td>
       <td>
         <div><img src="./img/1a6903133f0f4684ac91d4478ec1d4c5.png" /></div>
@@ -1072,7 +1145,8 @@ func.apply(this,[arg1,arg2])</code></pre>
         <div>5.第一个标签.https网站一般浏览器默认关闭a标签的预解析,使用该标签强制打开a标签预解析</div>
         <div>第二个</div>
       </td>
-      <td></td>
+      <td><img src="./img/20200828144014.png" alt=""><img src="img/20200828144449.png" alt="">
+        对比webpack:<br>1.代码压缩,<br>2文件合并,引入了多个文件和库,生成只有几个文件<br>3.缓存,不改文件内容,hash值不变</td>
     </tr>
     <tr>
       <td>
@@ -1200,6 +1274,12 @@ func.apply(this,[arg1,arg2])</code></pre>
         <div>拥有激情和热情</div>
         <div>希望公司提供机会,比如:学习的机会,交流的机会,进修,技术分享会等等</div>
       </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><img src="./img/20200831095936.png" alt=""></td>
+      <td></td>
       <td></td>
     </tr>
     <tr>
