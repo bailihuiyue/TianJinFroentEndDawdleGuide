@@ -491,8 +491,8 @@ console.log(s5.constructor);</code></pre>
         <div>var o=Object.create(parent)是把参数parent当做原型对象传给o的,所以o并不具备parent的属性,但是o的__proto__具有,因为o.__proto__===parent
         </div>
       </td>
-      <td>typeof 能判断哪些类型:<br/>
-        1.undefined,string,number,bool,symbol,<br/>2.object(typeof null === 'object'),<br/>3.function
+      <td>typeof 能判断哪些类型:<br />
+        1.undefined,string,number,bool,symbol,<br />2.object(typeof null === 'object'),<br />3.function
         <img src="./img/20200824163807.png" alt="">
         <div>未掌握://1.constructor</div>
         <div>//2.原型链</div>
@@ -806,7 +806,60 @@ console.log(iterator.next().value); // 3</code></pre>
       </td>
       <td>
         <div><a shape="rect" href="https://blog.csdn.net/demo_18/article/details/78493489"
-            target="_blank">https://blog.csdn.net/demo_18/article/details/78493489</a><br clear="none" /></div>
+            target="_blank">https://blog.csdn.net/demo_18/article/details/78493489</a>
+          <pre><code class="javascript"> 
+            var a = 1;
+            function a() { }
+            // 等价于
+            function a() { }
+            var a = undefined
+            a = 1;
+          
+            /*************************/
+            function a() { }
+            var a = 1;
+            // 等价于
+            function a() { }
+            var a = undefined
+            a = 1</code></pre>
+          <pre><code class="javascript">
+              function hoistFunction() {
+                foo(); // 2
+            
+                var foo = function () {
+                  console.log(1);
+                };
+            
+                foo(); // 1
+            
+                function foo() {
+                  console.log(2);
+                }
+            
+                foo(); // 1
+              }
+              //function 提升在var前面,如果有同名的function和var,var就不提升了
+            </code></pre>
+          <pre><code class="javascript">
+              var num = 10;
+              var obj = { num: 20 };
+              obj.fn = (function (num) {
+                this.num = num * 3;
+                num++;
+                return function (n) {
+                  this.num += n;
+                  num++;
+                  console.log(num);
+                }
+              })(obj.num);
+              var fn = obj.fn;
+              fn(5);//22
+              obj.fn(10); //23
+              console.log(num, obj.num); //65  30
+              // 主意:tiis.num和参数传入的num不是一回事,this.num = obj.num
+            </code></pre>
+            做这类题,一定要注意变量前面又没有var,有时就是坑人的没有var,变量就成了全局的
+        </div>
       </td>
       <td><img src="./img/20190815091557.jpg" /></td>
     </tr>
@@ -1174,7 +1227,7 @@ func.apply(this,[arg1,arg2])</code></pre>
         <div>2.代码:</div>
         <div><img src="./img/cf212c33c87af3cfd444bcd0e2023475.png" /></div>
       </td>
-      <td></td>
+      <td>一般try catch,其他window.onerror兜底(参数包括错误原因,行号之类的,cdn(跨域)的没有详细报错信息,压缩的没有sourceMap,报错信息不准)</td>
     </tr>
     <tr>
       <td>
