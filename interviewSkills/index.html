@@ -858,7 +858,7 @@ console.log(iterator.next().value); // 3</code></pre>
               console.log(num, obj.num); //65  30
               // 主意:tiis.num和参数传入的num不是一回事,this.num = obj.num
             </code></pre>
-            做这类题,一定要注意变量前面又没有var,有时就是坑人的没有var,变量就成了全局的
+          做这类题,一定要注意变量前面又没有var,有时就是坑人的没有var,变量就成了全局的
         </div>
       </td>
       <td><img src="./img/20190815091557.jpg" /></td>
@@ -1137,6 +1137,32 @@ func.apply(this,[arg1,arg2])</code></pre>
       </td>
     </tr>
     <tr>
+      <td></td>
+      <td>
+        <pre><code class="javascript">
+        function fun(n, o) {
+          console.log(o);
+          return {
+            fun: function (m) {
+              return fun(m, n);
+            }
+          };
+        }
+      
+        var a = fun(0); 
+        a.fun(1); 
+        a.fun(2); 
+        a.fun(3); 
+        var b = fun(0).fun(1).fun(2).fun(3); 
+        var c = fun(0).fun(1); 
+        c.fun(2); 
+        c.fun(3); 
+      </code></pre>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
       <td>
         <div>this指向性问题</div>
       </td>
@@ -1144,13 +1170,36 @@ func.apply(this,[arg1,arg2])</code></pre>
         <div>普通函数内部的this分两种情况，严格模式和非严格模式。</div>
       </td>
       <td>
+        <img src="./img/20200911141348.png" alt="">
         <div>非严格模式下，this 默认指向全局对象window</div>
         <div>而严格模式下， this为undefined</div>
         <div>箭头函数可以捕获其所在上下文的this值</div>
       </td>
       <td>
         <div><a shape="rect" href="http://www.cnblogs.com/dongcanliang/p/7054176.html" target="_blank">this
-            指向详细解析（箭头函数）</a></div>
+            指向详细解析（箭头函数）</a>
+          <pre><code class="javascript">
+            var point = { 
+              x : 0, 
+              y : 0, 
+              moveTo : function(x, y) { 
+                 // 内部函数
+                 var moveX = function(x) { 
+                     this.x = x;
+                 }; 
+                 // 内部函数
+                 var moveY = function(y) { 
+                     this.y = y;
+                 };
+                 moveX(x); // 这里是全局调用
+                 moveY(y); 
+              }
+          }; 
+          point.moveTo(1, 1); 
+          console.log(point.x); // 0
+          console.log(point.y); // 0          
+          </code></pre>
+          </div>
       </td>
     </tr>
     <tr>
@@ -1229,6 +1278,14 @@ func.apply(this,[arg1,arg2])</code></pre>
       </td>
       <td>一般try catch,其他window.onerror兜底(参数包括错误原因,行号之类的,cdn(跨域)的没有详细报错信息,压缩的没有sourceMap,报错信息不准)</td>
     </tr>
+    <td>
+    <td>其他</td>
+    <td>正向代理 <br>一句话解释正向代理，正向代理的对象是客户端，服务器端看不到真正的客户端。<br>
+      反向代理 <br>
+      一句话解释反向代理，反向代理的对象是服务端，客户端看不到真正的服务端。</td>
+    <td></td>
+    <td></td>
+    </td>
     <tr>
       <td>
         <div><span class="title">三面/四面</span></div>
