@@ -596,6 +596,28 @@ xhr.onload(function(){
       <td>
         <div>1.</div>
         <div>快速排序：</div>
+        <pre><code>
+          var quickSort = function (arr) {
+            if (arr.length <= 1) {
+              return arr;
+            }
+            var pivotIndex = Math.floor(arr.length / 2);
+            //基准位置（理论上可任意选取）
+            var pivot = arr.splice(pivotIndex, 1)[0];
+            //基准数
+            var left = [];
+            var right = [];
+            for (var i = 0; i < arr.length; i++) {
+              if (arr[i] < pivot) {
+                left.push(arr[i]);
+              } else {
+                right.push(arr[i]);
+              }
+            }
+            return quickSort(left).concat([pivot], quickSort(right));
+            //链接左数组、基准数构成的数组、右数组
+          };
+        </code></pre>
         <div><a shape="rect" href="https://segmentfault.com/a/1190000009426421"
             target="_blank">https://segmentfault.com/a/1190000009426421</a><br clear="none" /></div>
         <div>选择排序：</div>
@@ -741,6 +763,7 @@ console.log(iterator.next().value); // 3</code></pre>
         <div>2.Promise 原理:</div>
         <div><a shape="rect" href="https://www.cnblogs.com/zhansu/p/6530844.html"
             target="_blank">https://www.cnblogs.com/zhansu/p/6530844.html</a><br clear="none" /></div>
+            promise.then ,如果有return,下面的then就接上面then return的参数,就会顺序执行下去,如果都不return,那么所有的then就一起执行
       </td>
     </tr>
     <tr>
