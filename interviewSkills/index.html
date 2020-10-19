@@ -1230,6 +1230,7 @@ func.apply(this,[arg1,arg2])</code></pre>
       <td>博客园</td>
       <td>
         <div><a href="https://www.cnblogs.com/ones" target="_blank">https://www.cnblogs.com/ones</a></div>
+        <a href="./vue面试试题精编/vue试题.md" target="_blank">vue面试试题精编</a>
       </td>
       <td></td>
       <td></td>
@@ -1247,7 +1248,7 @@ func.apply(this,[arg1,arg2])</code></pre>
       <td>
         <div>原理:利用defineProperty的set方法进行劫持</div>
         <div>缺点:只能劫持对象的属性,因此我们需要对每个对象的每个属性进行遍历，如果属性值也是对象那么需要深度遍历,显然能劫持一个完整的对象是更好的选择。(百度说的)</div>
-        <div>新方法proxy.至少性能会更好</div>
+        <div>新方法proxy.性能会更好,并且支持代理对象,不用再递归着代理对象中的属性了,因此理论上不再需要this.$set了</div>
       </td>
     </tr>
     <tr>
