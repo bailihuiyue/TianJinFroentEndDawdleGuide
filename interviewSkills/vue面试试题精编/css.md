@@ -98,3 +98,72 @@ visibility 属性规定元素是否可见。
 
 
 ![img](https://img-blog.csdn.net/20180624222342801)
+
+##### 8.rgba和opacity的透明有何不同
+
+opacity会继承父元素的opacity 属性，而RGBA设置的元素的后代元素不会继承不透明属性。简单来说就是opacity作用于元素和元素所有内容的透明
+
+##### 9.用纯CSS创建一个三角形
+
+```css
+#triangle-up {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid red;
+}
+```
+
+##### 10.CSS优化与性能提高
+
+1.使用less等,重用css代码
+
+2.动画多用css3,不要用css2的width,left等移动
+
+##### 11.图片格式的选择
+
+图片用jpg,动图gif,尽量不要png,webp是最好的
+
+##### 12.link和@import的区别
+
+###### 结论
+
+就结论而言，强烈建议使用`link`标签，慎用`@import`方式。
+这样可以避免考虑`@import`的语法规则和注意事项，避免产生资源文件下载顺序混乱和http请求过多的烦恼。
+
+###### 区别
+
+###### **1.从属关系区别**
+
+`@import`是 CSS 提供的语法规则，只有导入样式表的作用；`link`是HTML提供的标签，不仅可以加载 CSS 文件，还可以定义 RSS、rel 连接属性等。
+
+###### **2.加载顺序区别**
+
+加载页面时，`link`标签引入的 CSS 被同时加载；`@import`引入的 CSS 将在页面加载完毕后被加载。
+
+###### **3.兼容性区别**
+
+`@import`是 CSS2.1 才有的语法，故只可在 IE5+ 才能识别；`link`标签作为 HTML 元素，不存在兼容性问题。
+
+###### **4.DOM可控性区别**
+
+可以通过 JS 操作 DOM ，插入`link`标签来改变样式；由于 DOM 方法是基于文档的，无法使用`@import`的方式插入样式。
+
+###### **5.权重区别(该项有争议，下文将详解)**
+
+`link`引入的样式权重大于`@import`引入的样式。
+
+##### 13.css3有哪些新特效
+
+1.RGBA和透明度
+
+2.媒体查询
+
+3.圆角,border-image,word-wrap,
+
+4.box-shadow
+
+5.颜色渐变
+
+6.transform 2D转换
