@@ -837,7 +837,7 @@ console.log(iterator.next().value); // 3</code></pre>
             function a() { }
             // 等价于
             function a() { }
-            var a = undefined
+            var a;
             a = 1;
           
             /*************************/
@@ -845,8 +845,10 @@ console.log(iterator.next().value); // 3</code></pre>
             var a = 1;
             // 等价于
             function a() { }
-            var a = undefined
-            a = 1</code></pre>
+            var a;
+            a = 1
+            //var a; 并未有赋值只是声明，因此他会调用上面同名的值
+          </code></pre>
           <pre><code class="javascript">
               function hoistFunction() {
                 foo(); // 2
@@ -883,7 +885,7 @@ console.log(iterator.next().value); // 3</code></pre>
               console.log(num, obj.num); //65  30
               // 主意:tiis.num和参数传入的num不是一回事,this.num = obj.num
             </code></pre>
-          做这类题,一定要注意变量前面又没有var,有时就是坑人的没有var,变量就成了全局的
+          做这类题,一定要注意变量前面又没有var,有时就是坑人的没有var,变量就成了全局的,全局的不提升
         </div>
       </td>
       <td><img src="./img/20190815091557.jpg" /></td>
