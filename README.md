@@ -20,7 +20,7 @@ https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/jsSenior/
 https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/frameComparison/
 
 4.慕课网:雅虎军规(代码规范)
-https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/yahunjungui/
+https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/yahujungui/
 
 5.vue相关
 https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/vue/yuanma.html 源码解析
