@@ -888,7 +888,15 @@ console.log(iterator.next().value); // 3</code></pre>
           做这类题,一定要注意变量前面又没有var,有时就是坑人的没有var,变量就成了全局的,全局的不提升
         </div>
       </td>
-      <td><img src="./img/20190815091557.jpg" /></td>
+      <td>
+        <img src="./img/20190815091557.jpg" />
+        <a href="https://blog.csdn.net/qq_40315045/article/details/97985779"></a>
+        <p style="font-weight:bold">
+          <p>JS编程时应该尽量避免变量名和函数名同名,否则会发生相互覆盖的问题.从实际测试效果来看,这种覆盖可以分为两种情况:</p>
+          <p>定义变量时只使用var定义变量,不分配变量初始值,此时函数的优先级更高,函数会覆盖变量;</p>
+          <p>定以变量时为变量指定了初始值,此时变量的优先级更高,变量会覆盖函数.</p>
+        </p>
+      </td>
     </tr>
     <tr>
       <td>
@@ -1064,7 +1072,8 @@ $("a").myPlugin(options);
         <div>js运行机制</div>
       </td>
       <td>
-        <div><img src="./img/612928863156f8fac7f7adbaa3926f8f.png" /></div>
+        <div><img src="./img/612928863156f8fac7f7adbaa3926f8f.png" />
+        <a href="https://blog.csdn.net/mus123/article/details/106499506">4天突击大厂常见前端面试题(2020版)文字版</a></div>
       </td>
       <td>
         <div>1.settimeout运行机制<br>
