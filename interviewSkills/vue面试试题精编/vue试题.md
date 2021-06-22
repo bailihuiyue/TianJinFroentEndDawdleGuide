@@ -141,6 +141,8 @@ https://www.cnblogs.com/jin-zhe/p/9523782.html
 
 第三种是父组件把方法传入子组件中，在子组件里直接调用这个方法
 
+第三种是使用mitt库,等价于EventBus,但是不要忘记页面卸载时注销这个事件,否则页面多次加载会出现重复注册的问题
+
 ##### 13.vue中 keep-alive 组件的作用
 
 https://www.cnblogs.com/lxlin/p/8472395.html
@@ -241,6 +243,8 @@ computed: {
 ##### 19.vue父组件向子组件通过props传递数据
 
 ###### **vue 父组件通过props向子组件传递方法的方式** **vue 组件中的 this**
+
+也可以使用provide/inject方法,父组件可以无限层级往子组件传递数据,跨越多层级
 
 vue 中 data/computed/methods 中 this的上下文是vue实例,需注意。例如：
 
