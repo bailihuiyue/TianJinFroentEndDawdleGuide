@@ -21,7 +21,7 @@ class Compiler {
   }
   /**
    * 判断是含有指令
-   * @param {*} attrName 属性名 type v-modal
+   * @param {*} attrName 属性名 type v-model
    */
   isDirective(attrName) {
       return attrName.startsWith('v-'); // 是否含有v-
@@ -35,10 +35,10 @@ class Compiler {
       let attributes = node.attributes;
       // Array.from()、[...xxx]、[].slice.call 等都可以将类数组转化为真实数组
       [...attributes].forEach(attr => {
-          // attr格式：type="text"  v-modal="obj.name"
+          // attr格式：type="text"  v-model="obj.name"
           let {name, value: expr} = attr;
           // 判断是不是指令
-          if(this.isDirective(name)) { // v-modal v-html v-bind
+          if(this.isDirective(name)) { // v-model v-html v-bind
               // console.log('element', node); 元素
               let [, directive] = name.split('-'); // 获取指令名
               // 需要调用不同的指令来处理

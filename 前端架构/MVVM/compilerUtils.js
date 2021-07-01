@@ -19,14 +19,14 @@ CompilerUtil = {
       }, vm.$data)
   },
   /**
-   * 处理v-modal
+   * 处理v-model
    * @param {*} node 对应的节点
    * @param {*} expr 表达式
    * @param {*} vm 当前实例
    */
-  modal(node, expr, vm) {
+  model(node, expr, vm) {
       // 给输入框赋予value属性 node.value = xxx
-      let fn = this.updater['modalUpdater'];
+      let fn = this.updater['modelUpdater'];
       new Watcher(vm, expr, (newValue) => {//给输入框加一个观察者 数据更新会触发此方法 会拿新值给 输入框赋值
         fn(node, newValue)
       })
@@ -51,7 +51,7 @@ CompilerUtil = {
   },
   updater: {
       // 把数据插入到节点中
-      modalUpdater(node, value) {
+      modelUpdater(node, value) {
           node.value = value;
       },
       // 处理文本节点
