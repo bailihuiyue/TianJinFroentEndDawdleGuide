@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>珠峰培训 - 微信：18310612838</title>
+	<!-- IMPORT CSS -->
+</head>
+
+<body>
+	姓名：<span id="spanName"></span>
+	<br>
+	<input type="text" id="inpName">
+
+	<!-- IMPORT JS -->
+	<script>
+		/* let obj = {
+			name: ''
+		};
+		let newObj = JSON.parse(JSON.stringify(obj));
+		Object.defineProperty(obj, 'name', {
+			get() {
+				return newObj.name;
+			},
+			set(val) {
+				if (val === newObj.name) return;
+				newObj.name = val;
+				observer();
+			}
+		});
+
+		function observer() {
+			spanName.innerHTML = obj.name;
+			inpName.value = obj.name;
+		}
+
+		setTimeout(() => {
+			obj.name = "珠峰培训";
+		}, 1000);
+
+		inpName.oninput = function () {
+			obj.name = this.value;
+		}; */
+
+		/*
+		 * 1. 对原始数据克隆
+		 * 2. 需要分别给对象中而定每一个属性设置监听
+		 */
+	</script>
+
+	<script>
+		let obj = {};
+		obj = new Proxy(obj, {
+			get(target, prop) {
+				return target[prop];
+			},
+			set(target, prop, value) {
+				target[prop] = value;
+				observer();
+			}
+		});
+
+		function observer() {
+			spanName.innerHTML = obj.name;
+			inpName.value = obj.name;
+		}
+
+		setTimeout(() => {
+			obj.name = "珠峰培训";
+		}, 1000);
+
+		inpName.oninput = function () {
+			obj.name = this.value;
+		};
+	</script>
+</body>
+
+</html>

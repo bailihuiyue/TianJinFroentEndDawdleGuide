@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>珠峰培训 - 微信：18310612838</title>
+</head>
+
+<body>
+	<script>
+		//example 1
+		// let a = {},
+		// 	b = '0',
+		// 	c = 0;
+		// a[b] = '珠峰';
+		// a[c] = '培训';
+		// console.log(a[b]);​
+		//=>对象和数组的区别
+
+		//example 2
+		// let a = {},
+		// 	b = Symbol('1'),
+		// 	c = Symbol('1');
+		// a[b] = '珠峰';
+		// a[c] = '培训';
+		// console.log(a[b]);​
+		//=>自己实现Symbol
+
+		//example 3
+		// let a = {},
+		// 	b = {
+		// 		n: '1'
+		// 	},
+		// 	c = {
+		// 		m: '2'
+		// 	};
+		// a[b] = '珠峰';
+		// a[c] = '培训';
+		// console.log(a[b]);
+		//=>Object.prototype.toString / valueOf
+
+		//=>遇到会的题不要“慌”：你以为你以为的就是你以为的
+		// var test = (function (i) {
+		// 	return function () {
+		// 		alert(i *= 2);
+		// 	}
+		// })(2);
+		// test(5);
+
+		var a = 0,
+			b = 0;
+		function A(a) {
+			A = function (b) {
+				alert(a + b++);
+			};
+			alert(a++);
+		}
+		A(1);
+		A(2);
+	</script>
+</body>
+
+</html>

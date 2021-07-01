@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>珠峰培训 - 微信：18310612838</title>
+	<!-- IMPORT CSS -->
+</head>
+
+<body>
+	<!-- IMPORT JS -->
+	<script>
+		// TO-STRING
+		/* var a = {
+			i: 0,
+			toString() {
+				return ++this.i;
+			}
+		};
+		if (a == 1 && a == 2 && a == 3) {
+			console.log('条件成立');
+		} */
+
+		/* var a = [1, 2, 3];
+		a.toString = a.shift;
+		if (a == 1 && a == 2 && a == 3) {
+			console.log('条件成立');
+		} */
+
+
+		/* 数据劫持实现 */
+		/* var i = 0;
+		Object.defineProperty(window, 'a', {
+			get() {
+				return ++i;
+			}
+		});
+		if (a == 1 && a == 2 && a == 3) {
+			console.log('条件成立');
+		} */
+
+		/* var a = 0;
+		Object.defineProperty(window, 'a', {
+			get() {
+				// Uncaught TypeError: Cannot redefine property: a
+				// defineProperty GETER拦截器中不能再次获取当前属性
+				return ++a;
+			}
+		});
+		console.log(a); */
+	</script>
+</body>
+
+</html>

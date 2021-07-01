@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>My MVVM</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-modal="obj.name" />
+      <span>{{obj.name}}</span>
+      <span>{{obj.age}}</span>
+    </div>
+    <script src="./MVVM.js"></script>
+    <script src="./compiler.js"></script>
+    <script src="./compilerUtils.js"></script>
+    <script src="./observer.js"></script>
+    <script src="./watcher.js"></script>
+    <script>
+      // 文档:https://juejin.cn/post/6844904067525935118
+      let vm = new MVVM({
+        el: '#app',
+        data: {
+          obj: {
+            name: 'tmc',
+            age: 25,
+          },
+        },
+      });
+
+      // TODO:扩展任务:Computed
+      function initComputed() {
+        let vm = this; // 将当前this挂载到vm上
+        let computed = this.$options.computed; // 从options上拿到computed属性
+        // 得到的都是对象的key可以通过Object.keys转化为数组
+        Object.keys(computed).forEach((key) => {
+          Object.defineProperty(vm, key, {
+            // 映射到this实例上
+            // 判断是computed里的key是对象还是函数
+            // 若是函数，则直接就调get方法
+            // 若是对象，则需要手动调一下get方法
+            // 因为computed只根据依赖的属性进行触发，当获取依赖属性时，系统会自动的去调用get方法，所以就不要用Watcher去监听变化了
+            get:
+              typeof computed[key] === 'function'
+                ? computed[key]
+                : computed[key].get,
+            set() {},
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

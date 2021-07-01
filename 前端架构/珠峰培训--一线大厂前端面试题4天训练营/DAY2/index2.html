@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>珠峰培训 - 微信：18310612838</title>
+	<!-- IMPORT CSS -->
+</head>
+
+<body>
+	<!-- IMPORT JS -->
+	<script>
+		let obj = {
+			a: 100,
+			b: [10, 20, 30],
+			c: {
+				x: 10
+			},
+			d: /^\d+$/
+		};
+
+		// let obj2 = {
+		// 	...obj
+		// };
+
+		// let obj2 = {};
+		// for (let key in obj) {
+		// 	if (!obj.hasOwnProperty(key)) break;
+		// 	obj2[key] = obj[key];
+		// }
+
+		// let obj2 = JSON.parse(JSON.stringify(obj)); //=>弊端?
+
+		// console.log(obj, obj2);
+
+		function deepClone(obj) {
+			//=>过滤特殊情况
+			if (obj === null) return null;
+			if (typeof obj !== "object") return obj;
+			if (obj instanceof RegExp) {
+				return new RegExp(obj);
+			}
+			if (obj instanceof Date) {
+				return new Date(obj);
+			}
+			//=>不直接创建空对象目的：克隆的结果和之前保持相同的所属类
+			let newObj = new obj.constructor;
+			for (let key in obj) {
+				if (obj.hasOwnProperty(key)) {
+					newObj[key] = deepClone(obj[key]);
+				}
+			}
+			return newObj;
+		}
+		
+		let obj2 = deepClone(obj);
+		console.log(obj, obj2);
+		console.log(obj === obj2);
+		console.log(obj.c === obj2.c);
+	</script>
+</body>
+
+</html>
