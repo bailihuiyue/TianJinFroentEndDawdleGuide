@@ -12,7 +12,7 @@ class Observer {
     }
   }
   defineReactive(obj, key, value) {
-    let dep = new Dep();
+    let dep = new Dep(key);
     this.observer(value); // 如果value还是对象，还需要观察
     Object.defineProperty(obj, key, {
       get() {
