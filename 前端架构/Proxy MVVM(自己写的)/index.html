@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>My MVVM</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="obj.name" />
+      <div>{{obj.name}}</div>
+      <div>{{obj.age}}</div>
+      {{obj.name}}
+    </div>
+    <script src="./MVVM.js"></script>
+    <script src="./compiler.js"></script>
+    <script src="./compilerUtils.js"></script>
+    <script src="./observer.js"></script>
+    <script src="./watcher.js"></script>
+    <script>
+      let vm = new MVVM({
+        el: '#app',
+        data: {
+          obj: {
+            name: 'tmc',
+            age: 25,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
