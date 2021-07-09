@@ -33,18 +33,28 @@ class Compiler {
     const keys = /\{\{(.+?)\}\}/g.exec(node.textContent);
     if (keys) {
       CompilerUtil['text'](node, keys[1], this.$data);
+      new Watcher(node, keys[1], this.$data, () =>
+        CompilerUtil['text'](node, keys[1], this.$data)
+      );
     }
   }
 
   compileElement(node) {
     [...node.attributes].forEach((attr) => {
-      let { name, value } = attr;
+      let { name, value:expr } = attr; //等价于v-model="obj.name",所以name就是v-model,value就是obj.name
       if (name.startsWith('v-')) {
         // v-model v-html v-bind
         // console.log('element', node); 元素
         let [, directive] = name.split('-'); // 获取指令名
         // 需要调用不同的指令来处理
-        CompilerUtil[directive](node, value, this.$data);
+        CompilerUtil[directive](node, expr, this.$data);
+        new Watcher(node, expr, this.$data, () =>
+          CompilerUtil[directive](node, expr, this.$data)
+        );
+        node.addEventListener('input', (e) => {
+          let iptValue = e.target.value; // 获取用户输入的内容
+          CompilerUtil.setVal(expr, this.$data, iptValue);
+        });
       }
     });
   }

@@ -17,12 +17,20 @@ class Observer {
     return this.defineReactive(data);
   }
   defineReactive(data) {
+    // 不能在这里添加watcher因为watcher更新数据需要dom,这里没有dom
+    // 也不能在compiler(编译dom)时再添加Proxy,因为如果有的变量没有在dom中渲染,就绑定不上了
+    // 因此只能在这里绑定
+    const dept = new Dept();
+    // dept.add(this);
     return new Proxy(data, {
       get(target, key) {
+        // window.watchInstance && dept.add(window.watchInstance);
+        Dept.target && dept.add(Dept.target);
         return target[key];
       },
       set(target, key, value) {
         target[key] = value;
+        dept.updateDom(this);
       },
     });
   }
