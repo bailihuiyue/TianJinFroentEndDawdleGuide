@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <style></style>
+  <script>
+    class Promise{
+      constructor(fun){
+        this.status='pending' //fulfill reject
+        this.data=null
+        this.fulfillArr=[]
+        this.rejectArr=[]
+        self=this
+        fun(this.resolve,this.reject)
+      }
+
+      then(succ,err){
+        // setInterval 这方法不好,用多了定时器太多,更好的方法是在resolve或者reject时执行方法
+        // let a=setInterval(()=>{
+        //   if(self.status){
+        //     if(self.status==='fulfill'){
+        //       succ(self.data)
+        //       clearInterval(a)
+        //     }else if(self.status==='reject'){
+        //       err(self.data)
+        //       clearInterval(a)
+        //     }
+        //   }
+        // })
+
+        // 应对没有settimeout的这种同步发的方法,调用then就直接执行了
+        if(self.status === 'fulfill'){
+          succ(self.data)
+        }
+        if(self.status === 'reject'){
+            err(self.data)
+        }
+
+        // 对付异步的方法
+        if(self.status === 'pending'){
+          // 等于then执行时，如果还是PENDING状态，我们不是马上去执行回调函数，而是将其存储起来
+          // 当resolve或者reject异步执行的时候就可以来调用了
+          // 等于通过一个中间数组fulfillArr和rejectArr把执行顺序反过来
+            self.fulfillArr.push(succ)
+            self.rejectArr.push(err)
+        }
+        return self
+      }
+
+      resolve(data){
+        if(self.status==='pending'){
+          self.status='fulfill'
+          self.data=data
+          self.fulfillArr.forEach(fn => {
+            const temp=fn(data)
+            data=temp
+          })
+        }
+      }
+
+      reject(data){
+        if(self.status==='pending'){
+          self.status='reject'
+          self.data=data
+          self.rejectArr.forEach(fn => fn(data))
+        }
+      }
+    }
+
+    new Promise(
+      function(resolve,reject){
+        setTimeout(()=>resolve(', test'))
+    }).then((data)=>{
+        console.log('成功'+data)
+        return 123
+    }).then((data)=>{
+      // 网上关于链式调用then的源码都是返回一个新的promise,懒得研究了
+      console.log(data)
+      return 456
+    }).then((res)=>{
+      console.log(res)
+    })
+  </script>
+</html>
