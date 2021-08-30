@@ -141,7 +141,11 @@ https://www.cnblogs.com/jin-zhe/p/9523782.html
 
 第三种是父组件把方法传入子组件中，在子组件里直接调用这个方法
 
-第三种是使用mitt库,等价于EventBus,但是不要忘记页面卸载时注销这个事件,否则页面多次加载会出现重复注册的问题
+第四种是使用mitt库,等价于EventBus,但是不要忘记页面卸载时注销这个事件,否则页面多次加载会出现重复注册的问题
+
+第五种是父给子传入一个属性，属性是一个方法，方法里包含着操作父组件的功能
+
+第六种是父传给一个对象，直接改，虽然vue不让直接改prop，但是只改里面的值不改引用地址，vue是检测不到的，而且修改的值还是响应式的
 
 ##### 13.vue中 keep-alive 组件的作用
 
@@ -263,3 +267,11 @@ vue 中 data/computed/methods 中 this的上下文是vue实例,需注意。例�
 .env.production 生产环境下的配置文件
 
 process.env.NODE_ENV
+
+##### 21.template模板如何根据不同组件名称渲染不同组件,不写多个if或者slot
+
+使用vue内置<Component :is="componentName"/>组件，使用is根据字符串渲染组件,但是组件要提前加载进来,比如提前加载了A,A的属性{name:'XXX'},那么is写成字符串的XXX就行了
+
+##### 22.template如何实现递归
+
+组件起名字{name:'XXX'}即可,然后再template模板中写<XXX/>就可以了
