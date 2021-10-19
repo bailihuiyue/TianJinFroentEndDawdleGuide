@@ -10,29 +10,32 @@
 1.前端跳槽面试常见问题
 https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/interviewSkills/
 
-2.ES6常见知识
+2.各公司遇到的面试题
+https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/前端架构/各公司遇到的面试题.md
+
+3.ES6常见知识
 https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/ES6/
 
-3.javascript高级(面试常问的一些细节问题)
+4.javascript高级(面试常问的一些细节问题)
 https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/jsSenior/
 
-4.ng,vue,react三大框架对比:
+5.ng,vue,react三大框架对比:
 https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/frameComparison/
 
-4.慕课网:雅虎军规(代码规范)
+6.慕课网:雅虎军规(代码规范)
 https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/yahujungui/
 
-5.vue相关
+7.vue相关
 https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/vue/yuanma.html 源码解析
 https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/vue/基础.html 基础知识(音乐播放器)
 https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/vue/hexinjishu.html Vue核心技术 Vue+Vue-Router+Vuex+SSR实战精讲
 
-6.webpack总结:https://github.com/bailihuiyue/Webpack-Study
+8.webpack总结:https://github.com/bailihuiyue/Webpack-Study
 
-7.react使用技巧
+9.react使用技巧
 https://github.com/bailihuiyue/Notes/blob/master/react%20%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/react%20ant%20design%20pro%20%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7.md
 
-8.bug修复和浏览器兼容性问题
+10.bug修复和浏览器兼容性问题
 https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/bugs&compatibility/
 
 如有错误或者不全,欢迎更正
