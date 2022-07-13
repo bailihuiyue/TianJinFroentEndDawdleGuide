@@ -1,7 +1,7 @@
 # 天津前端混饭指南
 ###  面试常见问题总结
 
-##### 本人五年前端,一直在天津工作,换过几家公司,也爬过一些坑,总结了一下这几年来学到的东西
+##### 本人八年前端,一直在天津工作,换过几家公司,也爬过一些坑,总结了一下这几年来学到的东西
 
 ##### 感觉天津前端的技术要求相对偏低,这里有很多问题是在面试过程中遇到的,应该比较适应天津公司的技术问题,如果是前端新人没什么面试经验的话,看看我总结的这些东西,如果能背会的话,估计月薪也能到10k左右了
 
@@ -37,6 +37,11 @@ https://github.com/bailihuiyue/Notes/blob/master/react%20%E4%BD%BF%E7%94%A8%E6%8
 
 10.bug修复和浏览器兼容性问题
 https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/bugs&compatibility/
+
+11.学习该项目中 前端架构 文件夹中的内容
+
+12.做一个自己的ui库
+https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/前端架构/UILibrary/index.md
 
 如有错误或者不全,欢迎更正
 
