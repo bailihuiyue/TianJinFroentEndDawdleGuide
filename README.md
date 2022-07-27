@@ -43,6 +43,13 @@ https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/bugs&compatibility/
 12.做一个自己的ui库
 https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/前端架构/UILibrary/index.md
 
+13. 有 React fiber，为什么没有 Vue fiber？
+    https://mp.weixin.qq.com/s/PWCaXavdnt2qkIQBOkYhTw 如果打不开,请看
+
+    https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/前端架构/有 React fiber，为什么没有 Vue fiber？.mhtml
+13. https://bailihuiyue.github.io/TianJinFroentEndDawdleGuide/前端架构/React hooks问题.png
+    
+
 如有错误或者不全,欢迎更正
 
 #### 最后还有一条无敌的技巧助你面试成功:唬住要五万,唬不住要五千!!!
